@@ -1,11 +1,26 @@
 // Eloy Eidon Loira (piloto) y Saul Fernandez Salgado (copiloto)
-package ud1.ejercicios.parejas;
+
+/*
+ * Realiza un programa que acepte por teclado un número de hectáreas e imprima a cuántos campos de fútbol equivale.
+ * Calcula e imprime el valor de superficie introducido en número de campos de baloncesto, de tenis, etc.
+ * 
+ * Para los cálculos puedes usar las siguientes dimensiones:
+ * 1 hectárea = 100 x 100 metros = 10000 m2
+ * Campo de fútbol según la FIFA (media): 105 x 70 metros 
+ * Cancha de baloncesto: 28 x 15 metros
+ * Pista de tenis (dobles): 23,77 x 10,97 metros
+ * Parque del Retiro: 125 hectáreas
+ * 
+ * Formatea y redondea la salida de resultados a tu criterio (dos decimales como máximo) para favorecer la legibilidad.
+ */
+
+
+
+
+package ud1.exercicios.parejas;
 
 import java.util.Scanner;
 
-/**
- * UdsMedida
- */
 public class UdsMedida {
 
     public static void main(String[] args) {

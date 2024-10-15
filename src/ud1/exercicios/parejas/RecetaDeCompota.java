@@ -1,5 +1,21 @@
 //Eloy Eidon Loila (copiloto) Saul Fernandez Salgado (Piloto)
-package ud1.ejercicios.parejas;
+
+/* Dada la siguiente receta de compota de manzana, pensada para 6 personas, u otra similar que encuentres en Internet,
+ * realiza un programa que haga lo siguiente:
+ * 
+ * 
+ * 1. Mostrar un nombre o título adecuado en pantalla.
+ * 2. Mostrar la URL de la receta elegida.
+ * 3. Mostrar el número de personas y las cantidades necesarias de manzana, agua, azúcar y limón para las que 
+ * está pensada la receta elegida.
+ * 4. Opcionalmente puedes mostrar los otros ingredientes en otra línea de salida.
+ * 
+ * Solicitar por teclado al usuario un número de personas para el cual adaptar la receta.
+ * Mostrar por pantalla las cantidades de manzana, agua, azúcar y limón necesarias para elaborar la receta 
+ * para el número de personas introducido.
+ */
+
+package ud1.exercicios.parejas;
 
 import java.util.Scanner;
 

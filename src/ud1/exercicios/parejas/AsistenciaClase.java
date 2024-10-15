@@ -1,5 +1,18 @@
 // Eloy Eidon Loira (piloto) y Saul Fernandez Salgado (copiloto)
-package ud1.ejercicios.parejas;
+
+/* A partir del nombre y horas de un módulo de FP, por ejemplo, “Programación”, 240 horas. 
+ * No es necesario pedir estos datos por teclado. Codifícalos como constantes en tu programa y 
+ * utiliza el tipo de dato String para almacenar el nombre del módulo.
+ * Calcula y muestra por pantalla:
+ * nº de sesiones de 50’.
+ * número de faltas sin justificar que implican un apercibimiento (>6%)
+ * número de faltas sin justificar para pérdida de evaluación continua (>10%)
+ * 
+ * Solicita por teclado un número de faltas de un alumno concreto e indica si implica apercibimiento, 
+ * pérdida de evaluación continua o ningún problema.
+*/
+
+package ud1.exercicios.parejas;
 
 import java.util.Scanner;
 
