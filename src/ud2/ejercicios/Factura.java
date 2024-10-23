@@ -1,3 +1,9 @@
+/* Factura (Factura.java). Escribe un programa para emitir la factura de compra de un producto,
+ * introduciendo el precio del producto y el número de unidades compradas. La factura deberá añadir
+ * al total un IVA (Impuesto del Valor Añadido) del 21%. Si el precio final con IVA es superior a 100
+ * euros se aplicará un descuento del 5%.
+*/
+
 package ud2.ejercicios;
 
 import java.util.Scanner;

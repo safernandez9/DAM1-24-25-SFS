@@ -1,9 +1,15 @@
+/* E0212. Pedir el día, mes y año de una fecha e indicar si la fecha es correcta. Hay que
+ * tener en cuenta que existen meses con 28, 30 y 31 días (no se considerarán los años
+ * bisiestos).
+*/
+
 package ud2.ejercicios;
 
 import java.util.Scanner;
 
 public class AñoCorrecto {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
         int dia, mes, anho;

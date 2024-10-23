@@ -1,3 +1,9 @@
+/* E0213. Escribir un programa que pida una hora de la siguiente forma: hora, minutos y
+ * segundos. El programa debe mostrar qué hora será un segundo más tarde. Por ejemplo:
+ * hora actual (10:41:59) => hora actual + 1 segundo (10:42:00)
+*/
+
+
 package ud2.ejercicios;
 
 import java.util.Scanner;
