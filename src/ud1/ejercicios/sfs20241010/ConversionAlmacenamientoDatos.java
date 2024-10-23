@@ -1,4 +1,4 @@
-package ud1.ejercicios.sfs20241010;
+/* package ud1.ejercicios.sfs20241010;
 import java.util.Scanner;
 import java.util.String;
 
@@ -39,3 +39,4 @@ Solicita al usuario la cantidad de datos y la unidad de origen y destino.
 1 MB = 1024 KB
 1 GB = 1024 MB
 El programa deberá realizar la conversión correspondiente y mostrar el resultado.
+*/
