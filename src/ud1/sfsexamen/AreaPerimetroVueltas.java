@@ -48,14 +48,14 @@ public class AreaPerimetroVueltas {
 
         // Calculo los datos finales del enunciado
 
-        numeroVueltas = (double) DISTANCIA_CARRERA / perimetroTotal;
-        distanciaSobrante = DISTANCIA_CARRERA - perimetroTotal * numeroVueltas;
+        numeroVueltas = DISTANCIA_CARRERA / perimetroTotal;
+        distanciaSobrante = perimetroTotal * Math.ceil(numeroVueltas) - DISTANCIA_CARRERA;
 
         System.out.printf(
                 "El perimetro total del terreno es de %.1f metros y su area total es de %.1f metros cuadrados \n",
                 perimetroTotal, areaTotal);
         System.out.printf("Los participantes deberán dar %.0f vueltas completas y les sobraran %.0f metros",
-                numeroVueltas, Math.ceil(distanciaSobrante));
+                Math.ceil(numeroVueltas), distanciaSobrante);
 
     }
 
