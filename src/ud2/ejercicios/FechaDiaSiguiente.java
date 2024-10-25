@@ -30,14 +30,14 @@ public class FechaDiaSiguiente {
                 if (dia <= 31 && dia > 0) {
                     if (dia == 31) {
                         dia = 1;
-                        mes += 1;
+                        mes++;
                         if (mes >= 12) {
                             mes = 1;
-                            anho += 1;
+                            anho++;
                         }
 
                     } else {
-                        dia += 1;
+                        dia++;
                         break;
                     }
                     System.out.printf("La fecha del dia siguiente es: %2d/%2d/%2d", dia, mes, anho);
@@ -49,9 +49,9 @@ public class FechaDiaSiguiente {
                 if (dia <= 30 && dia > 0) {
                     if (dia == 30) {
                         dia = 1;
-                        mes += 1;
+                        mes++;
                     } else {
-                        dia += 1;
+                        dia++;
                         break;
                     }
                     System.out.printf("La fecha del dia siguiente es: %2d/%2d/%2d", dia, mes, anho);
@@ -63,9 +63,9 @@ public class FechaDiaSiguiente {
                 if (dia <= 28 && dia > 0) {
                     if (dia == 28) {
                         dia = 1;
-                        mes += 1;
+                        mes++;
                     } else {
-                        dia += 1;
+                        dia++;
                         break;
                     }
                     System.out.printf("La fecha del dia siguiente es: %2d/%2d/%2d", dia, mes, anho);
