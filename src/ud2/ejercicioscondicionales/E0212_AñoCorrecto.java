@@ -3,11 +3,11 @@
  * bisiestos).
 */
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
-public class AñoCorrecto {
+public class E0212_AñoCorrecto {
 
     @SuppressWarnings("unused")
     public static void main(String[] args) {

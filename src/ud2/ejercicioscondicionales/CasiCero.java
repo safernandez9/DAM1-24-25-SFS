@@ -5,7 +5,7 @@
  * 12,3, el 0 o el -1.
 */
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

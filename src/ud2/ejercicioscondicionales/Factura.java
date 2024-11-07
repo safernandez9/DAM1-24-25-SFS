@@ -4,7 +4,7 @@
  * euros se aplicará un descuento del 5%.
 */
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

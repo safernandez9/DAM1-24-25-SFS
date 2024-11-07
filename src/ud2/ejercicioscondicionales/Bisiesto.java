@@ -5,7 +5,7 @@
  * caso también ha de ser divisible entre 400.”
 */
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

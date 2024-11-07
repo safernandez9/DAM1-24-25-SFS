@@ -2,11 +2,11 @@
  *fecha correspondiente al día siguiente.
 */
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
-public class FechaDiaSiguiente {
+public class E0214_FechaDiaSiguiente {
 
     public static void main(String[] args) {
 

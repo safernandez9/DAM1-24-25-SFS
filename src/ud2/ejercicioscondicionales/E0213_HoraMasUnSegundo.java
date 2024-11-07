@@ -4,11 +4,11 @@
 */
 
 
-package ud2.ejercicios;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
-public class HoraMasUnSegundo {
+public class E0213_HoraMasUnSegundo {
     public static void main(String[] args) {
 
         int hora, minuto, segundo;
