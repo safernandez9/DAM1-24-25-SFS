@@ -1,3 +1,2 @@
-IMPORTANTE, SI NO HAY BREAK, EJECUTA EL CASE Y LAS LINEAS HASTA EL PRIMER BREAK
-Ejemplo de otra version del switch en apuntes de Oscar
-Ejemplo tambien del uso de yield
+IMPORTANTE, JAVA SI NO HAY BREAK, EJECUTA EL CASE Y 
+LAS LINEAS HASTA EL PRIMER BREAK

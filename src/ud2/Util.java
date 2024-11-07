@@ -58,7 +58,7 @@ public class Util {
      * @return
      */
     static boolean esBisiesto(int anho) {
-        return (anho % 4 == 0 && anho % 100 != 0) || (anho % 4 == 0 && anho % 100 == 0 && anho % 400 == 0);
+        return (anho % 4 == 0 && (anho % 100 != 0 || anho % 400 == 0));
     }
 
     /**
@@ -72,13 +72,11 @@ public class Util {
 
         int cifras = 0;
 
-        do{
+        do {
             num = num / 10;
-            cifras++; 
-        }
-        while(num!=0);
-           
-        
+            cifras++;
+        } while (num != 0);
+
         return cifras;
     }
 
@@ -138,6 +136,48 @@ public class Util {
     }
 
     /**
-     *  */ 
- 
+     * diaSemana()
+     * Función que reciba un número comprendido entre 1 y 7, correspondiente a un
+     * día
+     * de la semana y que devuelva el día en texto.
+     * 
+     * @param dia
+     * @return
+     */
+    static String diaSemana(int dia) {
+
+        String diaATexto = "";
+
+        switch (dia) {
+            case 1:
+                diaATexto = "Lunes";
+                break;
+            case 2:
+                diaATexto = "Martes";
+                break;
+            case 3:
+                diaATexto = "Miércoles";
+                break;
+            case 4:
+                diaATexto = "Jueves";
+                break;
+            case 5:
+                diaATexto = "Viernes";
+                break;
+            case 6:
+                diaATexto = "Sábado";
+                break;
+            case 7:
+                diaATexto = "Domingo";
+                break;
+
+            default:
+                diaATexto = "Número de día de la semana incorrecto";
+                break;
+        }
+
+        return diaATexto;
+
+    }
+
 }
