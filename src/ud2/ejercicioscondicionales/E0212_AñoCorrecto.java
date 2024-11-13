@@ -1,11 +1,12 @@
-/* E0212. Pedir el día, mes y año de una fecha e indicar si la fecha es correcta. Hay que
- * tener en cuenta que existen meses con 28, 30 y 31 días (no se considerarán los años
- * bisiestos).
-*/
-
 package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
+
+/**
+ * E0212. Pedir el día, mes y año de una fecha e indicar si la fecha es correcta. Hay que
+ * tener en cuenta que existen meses con 28, 30 y 31 días (no se considerarán los años
+ * bisiestos).
+ */
 
 public class E0212_AñoCorrecto {
 
