@@ -17,7 +17,7 @@ public class EjemploBuclesAnidados2 {
             for (int j = 1; j <= filas; j++) { // columnas = filas
                 System.out.print((int)(Math.random() * 10) + " ");
             } // fin del for para las columnas
-            System.out.println(sfsef;
+            System.out.println();
         } // fin del for para las filas
     }
 }
