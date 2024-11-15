@@ -7,13 +7,30 @@ public class Supermercado {
     public static void main(String[] args) {
 
         float importeTotal;
+        int modoPago;
 
         Scanner sc = new Scanner(System.in);
 
+        //Lectura de productos
         importeTotal = introducirProductos();
+
+        //Total de la compra
         System.out.printf("El importe total de la compra es de %f euros.", importeTotal);
 
+        //Selección método de pago
         System.out.println("Introduzca 1 para el pago en efectivo o 2 para el pago con tarjeta: ");
+        modoPago = sc.nextInt();
+        sc.close();
+
+        switch (modoPago) {
+            case 1:
+                pagoEfectivo();
+
+            case 2:
+                System.out.println("Pago con tarjeta efectuado.");
+                break;
+        }
+
 
     }
 
@@ -23,16 +40,16 @@ public class Supermercado {
         float precioProducto, importeTotal = 0;
         boolean salir = false;
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc1 = new Scanner(System.in);
         System.out.println("Bienvenido al servicio de cobro. Introduzca el precio y" +
                 "las unidades de cada producto. Introduzca 0 cuando termine.");
 
         do {
             System.out.println("Introduzca el precio del producto");
-            precioProducto = sc.nextFloat();
+            precioProducto = sc1.nextFloat();
 
             System.out.println("Introduzca las unidades de producto a cobrar:");
-            unidadesProducto = sc.nextInt();
+            unidadesProducto = sc1.nextInt();
 
             importeTotal += precioProducto * unidadesProducto;
 
@@ -40,9 +57,26 @@ public class Supermercado {
                 salir = true;
         } while (!salir);
 
-        sc.close();
+        sc1.close();
 
         return importeTotal;
 
     }
+
 }
+
+static void pagoEfectivo(){
+    
+    float pago;
+    int num_billetes;
+
+    Scanner sc2 = new Scanner(System.in);
+
+    System.out.println("Introduzca la cantidad pagada por el comprador: ");
+    pago = sc2.nextFloat();
+
+    conversionBilletes(pago);
+
+}
+
+flata repetir y excpciones
