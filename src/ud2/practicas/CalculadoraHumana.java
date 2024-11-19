@@ -60,32 +60,32 @@ import java.util.Scanner;
 
 public class CalculadoraHumana {
 
+    final static int NUMERO_OPERACIONES = 4;
+    final static int NUMEROS_MAX = 200;
+    final static int NUMEROS_MIN = 1;
+
     public static void main(String[] args) {
 
-        //No se puede declarar con ámbito de clase? Si sse puede mover llamadas a la funcion juego
-        final int NUMERO_OPERACIONES = 4;
-        final int NUMEROS_MAX = 200;
-        final int NUMEROS_MIN = 1;
-
-        int num1, num2, aciertos, fallos;
-        int tipoOperacion;
+        int aciertos = 0;
+        int fallos = 0;
         boolean resultado;
 
-        num1 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
-        num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
-        tipoOperacion = calcularOperacion(NUMERO_OPERACIONES);
-
         presentacion();
+
+        do {
+            resultado = realizarJuego();
+            if (resultado) {
+                aciertos++;
+            } else {
+                fallos++;
+            }
+            if(!resultado){
+                System.out.println("Error. Nueva operación:");
+            }
+        } while (aciertos != 7 || fallos != 7);
+
         
-                do{
-                    resultado = realizarJuego(num1, num2, tipoOperacion);
-                    if(resultado){
-                        aciertos ++;
-                    }else{
-                        fallos++;
-                    }
-                            }while();
-                        }
+    }
 
     private static void presentacion() {
         System.out.println("Bienvenido a la CALCULADORA HUMANA !!!");
@@ -93,53 +93,63 @@ public class CalculadoraHumana {
                 "Deberá acertar 7 operaciones correctamente");
     }
 
-    private static boolean realizarJuego(int num1, int num2, int tipoOperacion) {
+    private static boolean realizarJuego() {
 
+        int num1, num2, tipoOperacion;
         int respuesta;
         int resultadoCorrecto;
         boolean acierto;
 
         Scanner sc = new Scanner(System.in);
 
+        // Genero la operación
+
+        num1 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
+        num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
+        tipoOperacion = calcularOperacion(NUMERO_OPERACIONES);
+
+        // Presento la operación y pido el resultado
         switch (tipoOperacion) {
             case 1:
                 resultadoCorrecto = num1 + num2;
                 System.out.printf("Su operación es: %d + %d = ?");
                 System.out.println("Introduzca el resultado:");
                 respuesta = sc.nextInt();
-
-                acierto = (resultadoCorrecto == respuesta) ? true : false;
+                break;
 
             case 2:
                 resultadoCorrecto = num1 - num2;
                 System.out.printf("Su operación es: %d - %d = ?");
                 System.out.println("Introduzca el resultado:");
                 respuesta = sc.nextInt();
-
-                acierto = (resultadoCorrecto == respuesta) ? true : false;
+                break;
 
             case 3:
                 resultadoCorrecto = num1 * num2;
                 System.out.printf("Su operación es: %d * %d = ?");
                 System.out.println("Introduzca el resultado:");
                 respuesta = sc.nextInt();
-
-                acierto = (resultadoCorrecto == respuesta) ? true : false;
+                break;
 
             case 4:
                 resultadoCorrecto = num1 / num2;
                 System.out.printf("Su operación es: %d / %d = ?");
                 System.out.println("Introduzca el resultado:");
                 respuesta = sc.nextInt();
-
-                acierto = (resultadoCorrecto == respuesta) ? true : false;
+                break;
 
             default:
-                return -1;
+                return false;
         }
 
+        // Valido resultado y devuelvo si es correcto o no
+        acierto = validarResultado(resultadoCorrecto, respuesta);
         return acierto;
 
+    }
+
+    public static boolean validarResultado(int resultadoCorrecto, int respuesta) {
+        return ((resultadoCorrecto == respuesta) ? true : false);
     }
 
     public static int calcularOperacion(int NUMERO_OPERACIONES) {
