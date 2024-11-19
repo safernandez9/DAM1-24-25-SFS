@@ -15,7 +15,7 @@ public class EjemploSwitch3 {
 
         System.out.print("Introduzca un numero entero:");
         a = sc.nextInt();
-        
+
         System.out.print("Introduzca otro numero entero:");
         b = sc.nextInt();
         sc.close();
@@ -24,7 +24,7 @@ public class EjemploSwitch3 {
         operador = (char) System.in.read();
 
         // o puedo: operador = sc.nextLine().charAt(0);
-        
+
         switch (operador) {
             case '-':
                 resultado = a - b;
@@ -32,6 +32,7 @@ public class EjemploSwitch3 {
             case '+':
                 resultado = a + b;
                 break;
+        
             case '*':
                 resultado = a * b;
                 break;
@@ -43,9 +44,7 @@ public class EjemploSwitch3 {
                     calculado = false;
                 }
                 break;
-            default:
-                System.out.println("\nOperador no valido");
-                calculado = false;
+
         }
         if (calculado) {
             System.out.println("\nEl resultado es: " + resultado);
