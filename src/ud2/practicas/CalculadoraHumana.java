@@ -63,28 +63,26 @@ public class CalculadoraHumana {
     final static int NUMERO_OPERACIONES = 4;
     final static int NUMEROS_MAX = 200;
     final static int NUMEROS_MIN = 1;
+    final static int MAX_FALLOS = 7;
+    final static int TIEMPO_SEGUNDOS = 59;          
 
     public static void main(String[] args) {
 
         int aciertos = 0;
         int fallos = 0;
         boolean resultado;
+        int operandoAnterior;
 
         presentacion();
+        fallos += realizarJuego();
 
         do {
-            resultado = realizarJuego();
-            if (resultado) {
+            fallos += realizarJuego();
+            if (fallos != 7) {
                 aciertos++;
-            } else {
-                fallos++;
             }
-            if(!resultado){
-                System.out.println("Error. Nueva operación:");
-            }
-        } while (aciertos != 7 || fallos != 7);
+        } while (aciertos != 7 || fallos != MAX_FALLOS);
 
-        
     }
 
     private static void presentacion() {
@@ -93,58 +91,87 @@ public class CalculadoraHumana {
                 "Deberá acertar 7 operaciones correctamente");
     }
 
-    private static boolean realizarJuego() {
+  
+
+    private static int realizarJuego() {
 
         int num1, num2, tipoOperacion;
         int respuesta;
         int resultadoCorrecto;
         boolean acierto;
+        int nFallos = 0;
+        int nAciertos = 0;
 
         Scanner sc = new Scanner(System.in);
 
-        // Genero la operación
+        /*
+         * Genero la operación y me aseguro de que en caso de división (tipoOperacion ==
+         * 4), se genere el
+         * segundo número hasta que el resultado sea entero
+         */
 
         num1 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
-        num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
         tipoOperacion = calcularOperacion(NUMERO_OPERACIONES);
+        do {
+            num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
+        } while (tipoOperacion == 4 && num1 % num2 != 0);
 
-        // Presento la operación y pido el resultado
-        switch (tipoOperacion) {
-            case 1:
-                resultadoCorrecto = num1 + num2;
-                System.out.printf("Su operación es: %d + %d = ?");
-                System.out.println("Introduzca el resultado:");
-                respuesta = sc.nextInt();
-                break;
+        // Mostrara la operación hasta que el jugador acierte o falle 7 veces
 
-            case 2:
-                resultadoCorrecto = num1 - num2;
-                System.out.printf("Su operación es: %d - %d = ?");
-                System.out.println("Introduzca el resultado:");
-                respuesta = sc.nextInt();
-                break;
+        do {
 
-            case 3:
-                resultadoCorrecto = num1 * num2;
-                System.out.printf("Su operación es: %d * %d = ?");
-                System.out.println("Introduzca el resultado:");
-                respuesta = sc.nextInt();
-                break;
+            // Presento la operación y pido el resultado
 
-            case 4:
-                resultadoCorrecto = num1 / num2;
-                System.out.printf("Su operación es: %d / %d = ?");
-                System.out.println("Introduzca el resultado:");
-                respuesta = sc.nextInt();
-                break;
+            switch (tipoOperacion) {
+                case 1:
+                    resultadoCorrecto = num1 + num2;
+                    System.out.printf("Su operación es: %d + %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
 
-            default:
-                return false;
-        }
+                case 2:
+                    resultadoCorrecto = num1 - num2;
+                    System.out.printf("Su operación es: %d - %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
 
-        // Valido resultado y devuelvo si es correcto o no
-        acierto = validarResultado(resultadoCorrecto, respuesta);
-        return acierto;
+                case 3:
+                    resultadoCorrecto = num1 * num2;
+                    System.out.printf("Su operación es: %d * %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                case 4:
+
+                    resultadoCorrecto = num1 / num2;
+                    System.out.printf("Su operación es: %d / %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                default:
+                    return -1;
+            }
+
+            // Valido resultado
+
+            acierto = validarResultado(resultadoCorrecto, respuesta);
+
+            // Si ha fallado, incremento el número de fallos y pido otra vez
+
+            if (!acierto) {
+                nFallos++;
+                System.out.printf("Error, tiene %d fallos.", nFallos);
+            }
+            else{
+                nAciertos++;
+
+            }
+
+        } while (nAciertos != 7 || nFallos != MAX_FALLOS);
 
     }
 
@@ -161,4 +188,82 @@ public class CalculadoraHumana {
         int num = (int) (Math.random() * (NUMEROS_MAX - NUMERO_MIN + 1)) + NUMERO_MIN;
         return num;
     }
+
+    /*private static int realizarJuego() {
+
+        int num1, num2, tipoOperacion;
+        int respuesta;
+        int resultadoCorrecto;
+        boolean acierto;
+        int fallos = 0;
+
+        Scanner sc = new Scanner(System.in);
+
+        /*
+         * Genero la operación y me aseguro de que en caso de división (tipoOperacion ==
+         * 4), se genere el
+         * segundo número hasta que el resultado sea entero
+         *//* 
+
+        num1 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
+        tipoOperacion = calcularOperacion(NUMERO_OPERACIONES);
+        do {
+            num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
+        } while (tipoOperacion == 4 && num1 % num2 != 0);
+
+        // Mostrara la operación hasta que el jugador acierte o falle 7 veces
+
+        do {
+
+            // Presento la operación y pido el resultado
+
+            switch (tipoOperacion) {
+                case 1:
+                    resultadoCorrecto = num1 + num2;
+                    System.out.printf("Su operación es: %d + %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                case 2:
+                    resultadoCorrecto = num1 - num2;
+                    System.out.printf("Su operación es: %d - %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                case 3:
+                    resultadoCorrecto = num1 * num2;
+                    System.out.printf("Su operación es: %d * %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                case 4:
+                    resultadoCorrecto = num1 / num2;
+                    System.out.printf("Su operación es: %d / %d = ?");
+                    System.out.println("Introduzca el resultado:");
+                    respuesta = sc.nextInt();
+                    break;
+
+                default:
+                    return -1;
+            }
+
+            // Valido resultado
+
+            acierto = validarResultado(resultadoCorrecto, respuesta);
+
+            // Si ha fallado, incremento el número de fallos y pido otra vez
+
+            if (!acierto) {
+                fallos++;
+                System.out.printf("Error, tiene %d fallos. Pruebe otra vez:", fallos);
+            }
+
+        } while (acierto || fallos != 7);
+
+        return fallos;
+
+    }*/
 }
