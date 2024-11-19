@@ -64,24 +64,16 @@ public class CalculadoraHumana {
     final static int NUMEROS_MAX = 200;
     final static int NUMEROS_MIN = 1;
     final static int MAX_FALLOS = 7;
-    final static int TIEMPO_SEGUNDOS = 59;          
+    final static int TIEMPO_SEGUNDOS = 59;
 
     public static void main(String[] args) {
 
-        int aciertos = 0;
-        int fallos = 0;
-        boolean resultado;
-        int operandoAnterior;
+        boolean ganaOPierde;
 
         presentacion();
-        fallos += realizarJuego();
 
-        do {
-            fallos += realizarJuego();
-            if (fallos != 7) {
-                aciertos++;
-            }
-        } while (aciertos != 7 || fallos != MAX_FALLOS);
+        ganaOPierde = realizarJuego();
+
 
     }
 
@@ -91,14 +83,13 @@ public class CalculadoraHumana {
                 "Deberá acertar 7 operaciones correctamente");
     }
 
-  
-
-    private static int realizarJuego() {
+    public static boolean realizarJuego() {
 
         int num1, num2, tipoOperacion;
         int respuesta;
         int resultadoCorrecto;
-        boolean acierto;
+        boolean acierto = false;
+        boolean ganaOPierde = false;
         int nFallos = 0;
         int nAciertos = 0;
 
@@ -160,42 +151,41 @@ public class CalculadoraHumana {
 
             acierto = validarResultado(resultadoCorrecto, respuesta);
 
-            // Si ha fallado, incremento el número de fallos y pido otra vez
+            // Si ha fallado, incremento el número de fallos y pido otra vez la misma operación
+            // Si ha acertado, incremento los aciertos y llamo a la función que realiza el juego
+            // usando como primer operando el resultado anterior
 
             if (!acierto) {
                 nFallos++;
                 System.out.printf("Error, tiene %d fallos.", nFallos);
-            }
-            else{
+            } else {
                 nAciertos++;
-
+                nFallos += realizarJuego(resultadoCorrecto, nFallos);
             }
 
-        } while (nAciertos != 7 || nFallos != MAX_FALLOS);
+        } while (nAciertos != 7 || nFallos < MAX_FALLOS);
+
+        //Sale por lo que o hay 7 fallos o 7 aciertos, asi que devuelvo cual de las dos opciones es
+        
+        ganaOPierde = (nAciertos == 7) ? true : false;
+        return ganaOPierde;
 
     }
 
-    public static boolean validarResultado(int resultadoCorrecto, int respuesta) {
-        return ((resultadoCorrecto == respuesta) ? true : false);
-    }
+    /**
+     * Esta función es igual a la anterior solo que recibe un parametro para usar
+     * como primer operando
+     * 
+     * @param num1
+     * @return
+     */
+    public static int realizarJuego(int num1, int nFallos) {
 
-    public static int calcularOperacion(int NUMERO_OPERACIONES) {
-        int num = (int) (Math.random() * (NUMERO_OPERACIONES - 1 + 1)) + 1;
-        return num;
-    }
-
-    public static int calcularNumero(int NUMERO_MIN, int NUMEROS_MAX) {
-        int num = (int) (Math.random() * (NUMEROS_MAX - NUMERO_MIN + 1)) + NUMERO_MIN;
-        return num;
-    }
-
-    /*private static int realizarJuego() {
-
-        int num1, num2, tipoOperacion;
+        int num2, tipoOperacion;
         int respuesta;
         int resultadoCorrecto;
         boolean acierto;
-        int fallos = 0;
+        int nAciertos = 0;
 
         Scanner sc = new Scanner(System.in);
 
@@ -203,9 +193,8 @@ public class CalculadoraHumana {
          * Genero la operación y me aseguro de que en caso de división (tipoOperacion ==
          * 4), se genere el
          * segundo número hasta que el resultado sea entero
-         *//* 
+         */
 
-        num1 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
         tipoOperacion = calcularOperacion(NUMERO_OPERACIONES);
         do {
             num2 = calcularNumero(NUMEROS_MIN, NUMEROS_MAX);
@@ -240,6 +229,7 @@ public class CalculadoraHumana {
                     break;
 
                 case 4:
+
                     resultadoCorrecto = num1 / num2;
                     System.out.printf("Su operación es: %d / %d = ?");
                     System.out.println("Introduzca el resultado:");
@@ -257,13 +247,29 @@ public class CalculadoraHumana {
             // Si ha fallado, incremento el número de fallos y pido otra vez
 
             if (!acierto) {
-                fallos++;
-                System.out.printf("Error, tiene %d fallos. Pruebe otra vez:", fallos);
+                nFallos++;
+                System.out.printf("Error, tiene %d fallos.", nFallos);
+            } else {
+                nAciertos++;
+                nFallos += realizarJuego(resultadoCorrecto, nFallos);
             }
 
-        } while (acierto || fallos != 7);
+        } while (nAciertos != 7 || nFallos < MAX_FALLOS);
 
-        return fallos;
+    }
 
-    }*/
+    public static boolean validarResultado(int resultadoCorrecto, int respuesta) {
+        return ((resultadoCorrecto == respuesta) ? true : false);
+    }
+
+    public static int calcularOperacion(int NUMERO_OPERACIONES) {
+        int num = (int) (Math.random() * (NUMERO_OPERACIONES - 1 + 1)) + 1;
+        return num;
+    }
+
+    public static int calcularNumero(int NUMERO_MIN, int NUMEROS_MAX) {
+        int num = (int) (Math.random() * (NUMEROS_MAX - NUMERO_MIN + 1)) + NUMERO_MIN;
+        return num;
+    }
+
 }
