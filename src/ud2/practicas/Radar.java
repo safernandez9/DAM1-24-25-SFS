@@ -45,10 +45,11 @@ package ud2.practicas;
  */
 public class Radar {
 
-    final static int DISTANCIA = 10;
-    final static int LIMITE = 100;
     public static void main(String[] args) {
 
+        final static int DISTANCIA = 10;
+        final static int LIMITE = 100;
+    
         int tiempo;
 
 
@@ -61,7 +62,7 @@ public class Radar {
         int velocidadVehiculo;
         int sobrepasaLimite;
 
-        velocidadVehiculo = (int)(distancia / convertirAHoras(tiempo));
+        velocidadVehiculo = (int) (distancia / convertirAHoras(tiempo));
         sobrepasaLimite = (velocidadVehiculo > limite) ? 1 : 0;
 
         return sobrepasaLimite;
@@ -72,20 +73,19 @@ public class Radar {
         int velocidadExcedida;
 
         velocidadExcedida = excesoVelocidad - limite;
-        switch(limite){
+        switch (limite) {
             case 20, 30, 40, 50:
-            break;
+                break;
 
             case 60, 70, 80, 90, 100, 110, 120:
-            break;
+                break;
         }
-
 
         return 0;
 
     }
 
-    public static double convertirAHoras(int tiempo){
+    public static double convertirAHoras(int tiempo) {
 
         double tiempoEnHoras;
 
