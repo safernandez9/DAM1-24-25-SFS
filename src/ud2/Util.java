@@ -1,5 +1,10 @@
 package ud2;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+@SuppressWarnings("resource")
+
 public class Util {
 
     /**
@@ -180,4 +185,29 @@ public class Util {
 
     }
 
+    /**
+     * Plantilla editable para la realización de comprobaciones de tipos y de parametros
+     * 
+     * @return
+     */
+    public int plantillaComprobarTipoEntero() {
+
+        Scanner sc = new Scanner(System.in);
+
+        int dato;
+
+        do {
+            System.out.println("");
+            try {
+                dato = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe introducir un número entero");
+                sc.nextLine();
+                dato = -1;
+            }
+        } while (dato < 0);
+
+        return dato;
+
+    }
 }
