@@ -5,6 +5,8 @@ package ud2.sfsexamen;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
+
 //Todos los System.out.printf a excepción de los de los bucles for son para mejorar la presentación.
 public class MenuFiguras {
 
@@ -108,6 +110,7 @@ public class MenuFiguras {
      */
     public static int comprobarDatoTriangulo() {
 
+       
         Scanner sc = new Scanner(System.in);
 
         int dato;
