@@ -70,8 +70,9 @@ public class IMC {
 
         double resultadoIMC;
 
-        resultadoIMC = kg / Math.pow(cm * 1000, 2);
+        resultadoIMC = kg / Math.pow(cm, 2);
 
+        resultadoIMC = resultadoIMC * 10000;
         return resultadoIMC;
 
     }
@@ -134,7 +135,7 @@ public class IMC {
     }
 
     @Test
-    void testImc() {
+    public void testImc() {
         // Definir casos de prueba y sus resultados esperados
         // Caso 1: Peso 70 kg, Altura 170 cm
         double resultadoCaso1 = imc(70, 170);
