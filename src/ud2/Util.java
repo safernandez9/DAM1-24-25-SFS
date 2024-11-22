@@ -14,8 +14,12 @@ public class Util {
      * @param num
      * @return
      */
-    static boolean esPar(int num) {
-        return (num % 2 == 0);
+    public static void esPar(int num) {
+        if(num % 2 == 0){
+            System.out.println("Es par");
+        }else{
+            System.out.println("No es par");
+        }
     }
 
     /**
@@ -26,15 +30,18 @@ public class Util {
      * @param b
      * @return
      */
-    static int mayor(int a, int b) {
+    public static int mayor(int a, int b) {
+        if(a == b){
+            return ;
+        }
         return (a > b ? a : b);
     }
 
-    static float mayor(float a, float b) {
+    public static float mayor(float a, float b) {
         return (a > b ? a : b);
     }
 
-    static double mayor(double a, double b) {
+    public static double mayor(double a, double b) {
         return (a > b ? a : b);
     }
 
@@ -47,11 +54,11 @@ public class Util {
      * @param num
      * @return
      */
-    static boolean esCasiCero(double num) {
+    public static boolean esCasiCero(double num) {
         return (num > 0 && num < 1) || (num < 0 && num > -1);
     }
 
-    static boolean esCasiCero(float num) {
+    public static boolean esCasiCero(float num) {
         return (num > 0 && num < 1) || (num < 0 && num > -1);
     }
 
@@ -62,7 +69,7 @@ public class Util {
      * @param anho
      * @return
      */
-    static boolean esBisiesto(int anho) {
+    public static boolean esBisiesto(int anho) {
         return (anho % 4 == 0 && (anho % 100 != 0 || anho % 400 == 0));
     }
 
@@ -73,7 +80,7 @@ public class Util {
      * @param nota
      * @return
      */
-    static int numCifras(int num) {
+    public static int numCifras(int num) {
 
         int cifras = 0;
 
@@ -98,7 +105,7 @@ public class Util {
      * @param nota
      * @return
      */
-    static String notaEnTexto(double nota) {
+    public static String notaEnTexto(double nota) {
 
         String notaEnTexto = "";
 
@@ -119,7 +126,7 @@ public class Util {
         return notaEnTexto;
     }
 
-    static String notaEnTexto(int nota) {
+    public static String notaEnTexto(int nota) {
 
         String notaEnTexto = "";
 
@@ -149,7 +156,7 @@ public class Util {
      * @param dia
      * @return
      */
-    static String diaSemana(int dia) {
+    public static String diaSemana(int dia) {
 
         String diaATexto = "";
 
@@ -195,7 +202,7 @@ public class Util {
      * @param anho
      * @return
      */
-    static boolean esFechaCorrecta(int dia, int mes, int anho) {
+    public static boolean esFechaCorrecta(int dia, int mes, int anho) {
 
         boolean correcto;
 
@@ -232,13 +239,12 @@ public class Util {
     /**
      * esHoraCorrecta()
      * Repite la función anterior para validar una hora.
+     * 
      * @return
      */
-    static boolean esHoraCorrecta(){
+    public static boolean esHoraCorrecta() {
 
         boolean correcto = true;
-
-
 
         return correcto;
     }
@@ -249,7 +255,7 @@ public class Util {
      * 
      * @return
      */
-    public int plantillaComprobarTipoEntero(String texto) {
+    public static int plantillaComprobarTipoEntero(String texto) {
 
         Scanner sc = new Scanner(System.in);
 
@@ -269,4 +275,47 @@ public class Util {
         return dato;
 
     }
+
+    public static float plantillaComprobarTipoFloat(String texto) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int dato;
+
+        do {
+            System.out.println(texto);
+            try {
+                dato = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe introducir un número entero");
+                sc.nextLine();
+                dato = -1;
+            }
+        } while (dato < 0);
+
+        return dato;
+
+    }
+
+    public static double plantillaComprobarTipoDouble(String texto) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int dato;
+
+        do {
+            System.out.println(texto);
+            try {
+                dato = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe introducir un número entero");
+                sc.nextLine();
+                dato = -1;
+            }
+        } while (dato < 0);
+
+        return dato;
+
+    }
+
 }
