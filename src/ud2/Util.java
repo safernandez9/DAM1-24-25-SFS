@@ -26,15 +26,15 @@ public class Util {
      * @param b
      * @return
      */
-    static int esMayor(int a, int b) {
+    static int mayor(int a, int b) {
         return (a > b ? a : b);
     }
 
-    static float esMayor(float a, float b) {
+    static float mayor(float a, float b) {
         return (a > b ? a : b);
     }
 
-    static double esMayor(double a, double b) {
+    static double mayor(double a, double b) {
         return (a > b ? a : b);
     }
 
@@ -186,18 +186,77 @@ public class Util {
     }
 
     /**
-     * Plantilla editable para la realización de comprobaciones de tipos y de parametros
+     * esFechaCorrecta()
+     * Función que recibe el día, mes y año de una fecha y devuelve si la fecha es
+     * correcta o no. Ten en cuenta los años bisiestos.
+     * 
+     * @param dia
+     * @param mes
+     * @param anho
+     * @return
+     */
+    static boolean esFechaCorrecta(int dia, int mes, int anho) {
+
+        boolean correcto;
+
+        switch (mes) {
+            case 1, 3, 5, 7, 8, 10, 12:
+                if (dia <= 31 && dia > 0) {
+                    correcto = true;
+                } else {
+                    correcto = false;
+                }
+                break;
+            case 4, 6, 9, 11:
+                if (dia <= 30 && dia > 0) {
+                    correcto = true;
+                } else {
+                    correcto = false;
+                }
+                break;
+            case 2:
+                if (dia <= 28 && dia > 0 || (dia <= 29 && dia > 0 && esBisiesto(anho))) {
+                    correcto = true;
+                } else {
+                    correcto = false;
+                }
+            default:
+                correcto = false;
+                break;
+        }
+
+        return correcto;
+
+    }
+
+    /**
+     * esHoraCorrecta()
+     * Repite la función anterior para validar una hora.
+     * @return
+     */
+    static boolean esHoraCorrecta(){
+
+        boolean correcto = true;
+
+
+
+        return correcto;
+    }
+
+    /**
+     * Plantilla editable para la realización de comprobaciones de tipos y de
+     * parametros
      * 
      * @return
      */
-    public int plantillaComprobarTipoEntero() {
+    public int plantillaComprobarTipoEntero(String texto) {
 
         Scanner sc = new Scanner(System.in);
 
         int dato;
 
         do {
-            System.out.println("");
+            System.out.println(texto);
             try {
                 dato = sc.nextInt();
             } catch (InputMismatchException e) {
