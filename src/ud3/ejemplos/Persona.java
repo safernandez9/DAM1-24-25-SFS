@@ -32,4 +32,8 @@ public class Persona {
             return false;
         }
     }
+
+    public void cumplirAnhos(){
+        
+    }
 }
