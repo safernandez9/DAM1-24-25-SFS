@@ -51,9 +51,8 @@ import org.junit.Test;
  * mensaxes:
  * 
  * a. “Velocidade dentro do límite”, se non hai exceso de velocidada.
- * b. “Infracción por exceso de velocidade!! Multa de XXX €!!”, se hai un exceso
- * de
- * velocidade, sendo XXX o importe da sanción.
+ * b. “Infracción por exceso de velocidade!! Multa de xxx €!!”, se hai un exceso
+ * de velocidade, sendo xxx o importe da sanción.
  */
 public class Radar {
 
