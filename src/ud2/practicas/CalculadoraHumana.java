@@ -94,7 +94,7 @@ public class CalculadoraHumana {
         int nAciertos = 0;
 
         Scanner sc = new Scanner(System.in);
-
+        sc.close();
         /*
          * Genero la operación y me aseguro de que en caso de división (tipoOperacion ==
          * 4), se genere el
@@ -144,7 +144,7 @@ public class CalculadoraHumana {
                     break;
 
                 default:
-                    return -1;
+                    return false;
             }
 
             // Valido resultado
@@ -255,6 +255,7 @@ public class CalculadoraHumana {
             }
 
         } while (nAciertos != 7 || nFallos < MAX_FALLOS);
+                return nAciertos;
 
     }
 

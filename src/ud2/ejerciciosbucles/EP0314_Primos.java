@@ -3,9 +3,11 @@ números hay entre 1 y n que sean primos. Un número primo es aquel mayor que 1 
 solo es divisible por 1 y por él mismo. 
 */
 
+//NO ACABADO
 package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
+import java.lang.Math;
 
 public class EP0314_Primos {
 
@@ -22,7 +24,7 @@ public class EP0314_Primos {
 
         
         for (i = 2; i <= num; i++) {
-            for (j = 2; i <= Math.sqrt(); i++) {
+            for (int j = 2; i <= Math.sqrt(i); i++) {
                 if (num % i == 0) {
                     System.out.printf("%d no es primo.");
                 }
