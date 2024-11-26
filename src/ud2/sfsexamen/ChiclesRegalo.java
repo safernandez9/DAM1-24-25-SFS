@@ -3,11 +3,16 @@
 package ud2.sfsexamen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.Test;
 
 public class ChiclesRegalo {
 
+    public static void main(String[] args) {
+        int a;
+
+        a = totalChicles(20, 2, 2);
+        System.out.println(a);
+    }
     public static int totalChicles(int nChiclesComprados, int nEnvoltoriosOferta, int nChiclesGratis) {
 
         int chiclesExtra = 0;
@@ -25,7 +30,7 @@ public class ChiclesRegalo {
         }
 
         // Caso "Se dan mas chicles gratis que envoltorios se entregan"
-        if (nChiclesGratis > nEnvoltoriosOferta) {
+        if (nChiclesGratis >= nEnvoltoriosOferta) {
             return -1;
         }
 
@@ -43,7 +48,7 @@ public class ChiclesRegalo {
             // Y si tenemos sudicientes para otro premio volvemos a ejecutar el bucle
             // usando como nChiclesComprados los extra
 
-            nChiclesComprados = chiclesExtra;
+            nChiclesComprados = chiclesExtra + nChiclesComprados % nEnvoltoriosOferta;
             chiclesExtra = 0;
         } while (nChiclesComprados / nEnvoltoriosOferta != 0);
 
