@@ -6,13 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 public class ChiclesRegalo {
-
-    public static void main(String[] args) {
-        int a;
-
-        a = totalChicles(20, 2, 2);
-        System.out.println(a);
-    }
     public static int totalChicles(int nChiclesComprados, int nEnvoltoriosOferta, int nChiclesGratis) {
 
         int chiclesExtra = 0;
