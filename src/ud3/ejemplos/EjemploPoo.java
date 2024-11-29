@@ -1,6 +1,9 @@
 package ud3.ejemplos;
 
+@SuppressWarnings("unused")
+
 public class EjemploPoo {
+  
    public static void main(String[] args) {
       // se crea un objeto de tipo Persona
       Persona p;
@@ -47,6 +50,8 @@ public class EjemploPoo {
 
 
       Persona p4 = new Persona("Claudia", 8, 1.2);
+      Persona p5 = new Persona ("Pepe");
+      
 
       System.out.println("FIN");
    }

@@ -2,7 +2,10 @@ package ud3.ejemplos;
 
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
+
 public class FechaMain {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Fecha fecha = new Fecha();
@@ -16,9 +19,9 @@ public class FechaMain {
         a = sc.nextInt();
         fecha.asignarFecha(d, m, a);
         if (fecha.fechaCorrecta()) {
-            System.out.println(fecha.getDia() + "-" + fecha.getMes()+ "-" + fecha.getAño());                      
+            System.out.println(fecha.getDia() + "-" + fecha.getMes() + "-" + fecha.getAño());
         } else {
             System.out.println("Fecha no valida");
         }
     }
-}    
+}
