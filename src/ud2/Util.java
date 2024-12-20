@@ -1,320 +1,125 @@
 package ud2;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-
-@SuppressWarnings("resource")
 
 public class Util {
 
-    /**
-     * esPar:
-     * Comprueba si un número es par o no.
-     * 
-     * @param num
-     * @return
-     */
-    public static void esPar(int num) {
-        if(num % 2 == 0){
-            System.out.println("Es par");
-        }else{
-            System.out.println("No es par");
+    public static void imprimirTrianguloRectangulo(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
         }
     }
 
-    /**
-     * esMayor:
-     * Devuelve el mayor de dos números diferentes.
-     * 
-     * @param a
-     * @param b
-     * @return
-     */
-    public static int mayor(int a, int b) {
-        if(a == b){
-            return ;
+    public static void imprimirTrianguloRectanguloInverso(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
         }
-        return (a > b ? a : b);
     }
 
-    public static float mayor(float a, float b) {
-        return (a > b ? a : b);
+    // método que muestra un String rodeado por un borde
+    public static void cajaTexto(String str, char ch) {
+        int n = str.length(); // longitud del String
+
+        imprimirLinea(n, ch);
+        System.out.println(ch + " " + str + " " + ch); // cadena con un borde en cada lado
+        imprimirLinea(n, ch);
     }
 
-    public static double mayor(double a, double b) {
-        return (a > b ? a : b);
+    public static void imprimirLinea(int n, char ch) {
+        for (int i = 1; i <= n + 4; i++) { // borde de arriba
+            System.out.print(ch);
+        }
+        System.out.println();
     }
 
-    /**
-     * esCasiCero:
-     * Comprueba si un número es casi-cero o no. Un número casi-cero es
-     * aquel, positivo o negativo (distinto de 0), que se acercan a 0 por
-     * menos de 1 unidad.
-     * 
-     * @param num
-     * @return
-     */
-    public static boolean esCasiCero(double num) {
-        return (num > 0 && num < 1) || (num < 0 && num > -1);
+    public static boolean esPar(int n) {
+        return n % 2 == 0;
     }
 
-    public static boolean esCasiCero(float num) {
-        return (num > 0 && num < 1) || (num < 0 && num > -1);
-    }
-
-    /**
-     * esBisiesto
-     * Comprueba si un año es bisiesto o no.
-     * 
-     * @param anho
-     * @return
-     */
     public static boolean esBisiesto(int anho) {
-        return (anho % 4 == 0 && (anho % 100 != 0 || anho % 400 == 0));
+        return anho % 400 == 0 || (anho % 4 == 0 && anho % 100 != 0);
     }
 
-    /**
-     * numCifras()
-     * Función que indique cuántas cifras tiene un número entero
-     * 
-     * @param nota
-     * @return
-     */
-    public static int numCifras(int num) {
-
-        int cifras = 0;
-
-        do {
-            num = num / 10;
-            cifras++;
-        } while (num != 0);
-
-        return cifras;
+    static int mayor(int a, int b) {
+        return a > b ? a : b;
     }
 
-    /**
-     * notaEnTexto()
-     * Función que reciba una nota entera de 0 a 10 y devuelva el equivalente en
-     * texto según la siguiente escala:
-     * insuficiente (de 0 a 4)
-     * suficiente (5)
-     * bien (6)
-     * notable (7 y 8)
-     * sobresaliente (9 y 10)
-     * 
-     * @param nota
-     * @return
-     */
-    public static String notaEnTexto(double nota) {
-
+    static String notaEnTexto(int nota) {
         String notaEnTexto = "";
 
-        if (nota < 0 || nota > 10) {
-            notaEnTexto = "Error";
-        } else if (nota >= 0 && nota < 5) {
-            notaEnTexto = "Suspenso";
-        } else if (nota >= 5 && nota < 6) {
-            notaEnTexto = "Suficiente";
-        } else if (nota >= 6 && nota < 7) {
-            notaEnTexto = "Bien";
-        } else if (nota >= 7 && nota < 9) {
-            notaEnTexto = "Notable";
-        } else if (nota >= 9 && nota <= 10) {
-            notaEnTexto = "Sobresaliente";
-        }
-
-        return notaEnTexto;
-    }
-
-    public static String notaEnTexto(int nota) {
-
-        String notaEnTexto = "";
-
-        if (nota < 0 || nota > 10) {
-            notaEnTexto = "Error";
-        } else if (nota >= 0 && nota < 5) {
-            notaEnTexto = "Suspenso";
-        } else if (nota >= 5 && nota < 6) {
-            notaEnTexto = "Suficiente";
-        } else if (nota >= 6 && nota < 7) {
-            notaEnTexto = "Bien";
-        } else if (nota >= 7 && nota < 9) {
-            notaEnTexto = "Notable";
-        } else if (nota >= 9 && nota <= 10) {
-            notaEnTexto = "Sobresaliente";
-        }
-
-        return notaEnTexto;
-    }
-
-    /**
-     * diaSemana()
-     * Función que reciba un número comprendido entre 1 y 7, correspondiente a un
-     * día
-     * de la semana y que devuelva el día en texto.
-     * 
-     * @param dia
-     * @return
-     */
-    public static String diaSemana(int dia) {
-
-        String diaATexto = "";
-
-        switch (dia) {
-            case 1:
-                diaATexto = "Lunes";
-                break;
-            case 2:
-                diaATexto = "Martes";
-                break;
-            case 3:
-                diaATexto = "Miércoles";
-                break;
-            case 4:
-                diaATexto = "Jueves";
+        switch (nota) {
+            case 0, 1, 2, 3, 4:
+                notaEnTexto = "insuficiente";
                 break;
             case 5:
-                diaATexto = "Viernes";
+                notaEnTexto = "suficiente";
                 break;
             case 6:
-                diaATexto = "Sábado";
+                notaEnTexto = "bien";
                 break;
-            case 7:
-                diaATexto = "Domingo";
+            case 7, 8:
+                notaEnTexto = "notable";
                 break;
-
-            default:
-                diaATexto = "Número de día de la semana incorrecto";
-                break;
-        }
-
-        return diaATexto;
-
-    }
-
-    /**
-     * esFechaCorrecta()
-     * Función que recibe el día, mes y año de una fecha y devuelve si la fecha es
-     * correcta o no. Ten en cuenta los años bisiestos.
-     * 
-     * @param dia
-     * @param mes
-     * @param anho
-     * @return
-     */
-    public static boolean esFechaCorrecta(int dia, int mes, int anho) {
-
-        boolean correcto;
-
-        switch (mes) {
-            case 1, 3, 5, 7, 8, 10, 12:
-                if (dia <= 31 && dia > 0) {
-                    correcto = true;
-                } else {
-                    correcto = false;
-                }
-                break;
-            case 4, 6, 9, 11:
-                if (dia <= 30 && dia > 0) {
-                    correcto = true;
-                } else {
-                    correcto = false;
-                }
-                break;
-            case 2:
-                if (dia <= 28 && dia > 0 || (dia <= 29 && dia > 0 && esBisiesto(anho))) {
-                    correcto = true;
-                } else {
-                    correcto = false;
-                }
-            default:
-                correcto = false;
+            case 9, 10:
+                notaEnTexto = "sobresaliente";
                 break;
         }
 
-        return correcto;
-
+        return notaEnTexto;
     }
 
-    /**
-     * esHoraCorrecta()
-     * Repite la función anterior para validar una hora.
-     * 
-     * @return
-     */
-    public static boolean esHoraCorrecta() {
+    static String notaEnTexto(double nota) {
 
-        boolean correcto = true;
+        String notaEnTexto = "";
 
-        return correcto;
+        if (nota >= 0 && nota < 5) {
+            notaEnTexto = "insuficiente";
+        } else if (nota >= 5 && nota < 6) {
+            notaEnTexto = "suficiente";
+        } else if (nota >= 6 && nota < 7) {
+            notaEnTexto = "bien";
+        } else if (nota >= 7 && nota < 9) {
+            notaEnTexto = "notable";
+        } else if (nota >= 9 && nota <= 10) {
+            notaEnTexto = "sobresaliente ";
+        }
+
+        return notaEnTexto;
     }
 
-    /**
-     * Plantilla editable para la realización de comprobaciones de tipos y de
-     * parametros
-     * 
-     * @return
-     */
-    public static int plantillaComprobarTipoEntero(String texto) {
+    public static void main(String[] args) {
+        imprimirTrianguloRectangulo(6);
+
+        imprimirTrianguloRectanguloInverso(8);
+
+        double notaDouble = 6.7;
+        System.out.println(notaEnTexto((int) notaDouble));
+        int notaInt = 8;
+        System.out.println(notaEnTexto(notaInt));
 
         Scanner sc = new Scanner(System.in);
+        System.out.print("Número / Anho: ");
+        int n = sc.nextInt();
+        sc.close();
 
-        int dato;
+        if (esPar(n))
+            System.out.println("Es Par");
+        else
+            System.out.println("Es Impar");
 
-        do {
-            System.out.println(texto);
-            try {
-                dato = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Debe introducir un número entero");
-                sc.nextLine();
-                dato = -1;
-            }
-        } while (dato < 0);
+        if (esBisiesto(n))
+            System.out.println("Es Bisiesto");
+        else
+            System.out.println("NO es bisiesto");
 
-        return dato;
-
-    }
-
-    public static float plantillaComprobarTipoFloat(String texto) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int dato;
-
-        do {
-            System.out.println(texto);
-            try {
-                dato = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Debe introducir un número entero");
-                sc.nextLine();
-                dato = -1;
-            }
-        } while (dato < 0);
-
-        return dato;
-
-    }
-
-    public static double plantillaComprobarTipoDouble(String texto) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int dato;
-
-        do {
-            System.out.println(texto);
-            try {
-                dato = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Debe introducir un número entero");
-                sc.nextLine();
-                dato = -1;
-            }
-        } while (dato < 0);
-
-        return dato;
+        System.out.println(mayor(4, 17));
+        System.out.println(mayor(8, 1));
 
     }
 

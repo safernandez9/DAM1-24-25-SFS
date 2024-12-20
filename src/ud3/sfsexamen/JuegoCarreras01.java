@@ -1,7 +1,5 @@
 package ud3.sfsexamen;
 
-import java.util.Random;
-
 public class JuegoCarreras01 {
 
     final static int DISTANCIA_CARRERA = 500;
