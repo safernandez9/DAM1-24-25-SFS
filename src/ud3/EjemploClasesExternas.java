@@ -5,6 +5,7 @@ import ud3.apuntes.Fecha;
 import ud3.apuntes.Persona;
 
 public class EjemploClasesExternas {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Persona p = new Persona("Pepe");
         CuentaCorriente cc = new CuentaCorriente("55555555Z", -45);

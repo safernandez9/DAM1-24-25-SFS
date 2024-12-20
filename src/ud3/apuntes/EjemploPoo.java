@@ -1,6 +1,7 @@
 package ud3.apuntes;
 
 public class EjemploPoo {
+   @SuppressWarnings("unused")
    public static void main(String[] args) {
       // se crea un objeto de tipo Persona
       Persona p;

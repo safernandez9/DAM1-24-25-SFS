@@ -1,6 +1,7 @@
 package ud3.apuntes;
 
 public class EjemploClasesVecinas {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Persona p = new Persona("Pepe");
         CuentaCorriente cc = new CuentaCorriente("55555555Z", -45);

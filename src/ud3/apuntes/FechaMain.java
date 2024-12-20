@@ -3,6 +3,7 @@ package ud3.apuntes;
 import java.util.Scanner;
 
 public class FechaMain {
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Fecha fecha = new Fecha();

@@ -1,6 +1,7 @@
 package ud3.apuntes;
 
 public class Envolventes {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         int k = 23;
         Integer num = k;

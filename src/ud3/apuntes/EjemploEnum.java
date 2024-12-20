@@ -5,6 +5,7 @@ import java.util.Scanner;
 import ud3.apuntes.Persona.Sexo;
 
 public class EjemploEnum {
+    @SuppressWarnings({ "unused", "resource" })
     public static void main(String[] args) {
         DiaDeLaSemana hoy;
 
@@ -15,7 +16,6 @@ public class EjemploEnum {
         if (hoy == DiaDeLaSemana.VIERNES) {
             System.out.println("Por fin es viernes!!!");
         }
-
 
         Persona p = new Persona("Pepe", Sexo.HOMBRE);
         Persona pp = new Persona("Marta", "MUJER");

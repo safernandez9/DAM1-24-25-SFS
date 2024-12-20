@@ -11,6 +11,7 @@ import java.lang.Math;
 
 public class EP0314_Primos {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
         int num, i;
@@ -21,6 +22,8 @@ public class EP0314_Primos {
             System.out.println("Introduzca un número mayor que 1: ");
             num = sc.nextInt();
         } while (num == 0 || num == 1);
+
+        sc.close();
 
         
         for (i = 2; i <= num; i++) {
