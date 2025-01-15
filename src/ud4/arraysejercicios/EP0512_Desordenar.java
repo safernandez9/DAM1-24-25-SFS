@@ -1,11 +1,11 @@
 package ud4.arraysejercicios;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class EP0512_Desordenar {
 
     public static void main(String[] args) {
-
         int t[] = { 1, 2, 3, 4, 5 };
         desordenar(t);
         for (int i = 0; i < t.length; i++) {
