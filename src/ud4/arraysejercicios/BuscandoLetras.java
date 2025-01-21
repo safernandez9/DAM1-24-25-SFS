@@ -44,7 +44,7 @@ public class BuscandoLetras {
         return (t[indiceAleatorio]);
 
     }
-
+ 
     static int[] buscarLetra(String cadena, char letra) {
 
         char [] caracteres;
