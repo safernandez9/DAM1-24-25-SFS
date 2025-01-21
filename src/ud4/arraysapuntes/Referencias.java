@@ -1,4 +1,4 @@
-package ud4.apuntes;
+package ud4.arraysapuntes;
 
 import ud3.sfsexamen.CocheCarreras;
 
