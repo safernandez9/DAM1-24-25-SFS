@@ -47,6 +47,8 @@ public class E0509 {
             nota = sc.nextDouble();
         }
 
+        sc.close();
+        
         System.out.println("Puntuaciones finales: " + Arrays.toString(puntuaciones));
     }
 }

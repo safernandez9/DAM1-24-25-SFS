@@ -33,6 +33,8 @@ public class E0511 {
         }
 
         System.out.println("ENHORABUENA!!");
+        
+        sc.close();
     }
 
     static void mostrarPistas(int[] tSecreto, int[] tUsuario) {
@@ -47,6 +49,7 @@ public class E0511 {
         System.out.println();
     }
 
+    @SuppressWarnings("resource")
     static int[] leerCombinacion(int n) {
         Scanner sc = new Scanner(System.in);
         int[] combinacion = new int[n];

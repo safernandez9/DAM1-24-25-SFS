@@ -2,6 +2,12 @@ package ud4.arraysapuntes;
 
 import java.util.Scanner;
 
+/**
+ * ArrayNumeros. Introduce un número n por teclado. A continuación, solicita al usuario que teclee n
+ * números y almacénalos en un array. A continuación realiza y muestra la media de los números
+ * positivos, la media de los negativos y cuenta el número de ceros introducidos.
+ */
+
 public class ArrayNumeros {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -31,6 +37,8 @@ public class ArrayNumeros {
         System.out.println("Media de números positivos: " + sumaPos / contPos); // División entera sin decimales
         System.out.println("Media de números negativos: " + sumaNeg / contNeg); // División entera sin decimales
         System.out.println("Número de ceros: " + contCeros);
+
+        sc.close();
     }
         
         private static void leerNumeros(int[] t) {

@@ -1,7 +1,6 @@
 package ud4.arraysapuntes;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 import ud4.ArraysUtil;
@@ -133,6 +132,7 @@ public class EjemplosOrdenar {
 
         System.out.println(Arrays.toString(t));
 
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         System.out.print("Número a buscar: ");
         int clave = sc.nextInt();

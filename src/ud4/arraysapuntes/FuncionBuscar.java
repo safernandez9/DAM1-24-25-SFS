@@ -2,6 +2,12 @@ package ud4.arraysapuntes;
 
 import java.util.Random;
 
+/**
+ * FuncionBuscar. Escribe una función que busque de forma secuencial en la tabla t el valor clave.
+ * En caso de encontrarlo, devuelve en qué posición lo encuentra, y en caso contrario, devolverá -1.
+ * int buscar(int t[], int clave)
+ */
+
 public class FuncionBuscar {
     /**
      * 
