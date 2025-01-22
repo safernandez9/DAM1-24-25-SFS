@@ -11,6 +11,7 @@ import java.util.Arrays;
  * números y de una longitud especificada.
  * static int[] tablaAleatoria(int numInicio, int numFin, int longitud);
  */
+
 public class E0506_Primitiva {
     static int numAciertos(Integer[] apuesta, Integer[] ganadora) {
         int numAciertos = 0;

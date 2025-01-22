@@ -2,7 +2,13 @@ package ud4.arraysapuntes;
 
 import java.util.Random;
 
+/**
+ * BuscarUltimo. Realiza una versión del método anterior que busque en el array la última
+ * aparición de la clave.
+ */
+
 public class BuscarUltimo {
+    
     /**
      * 
      * @param t
