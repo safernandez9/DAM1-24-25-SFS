@@ -2,6 +2,12 @@ package ud4.arraysapuntes;
 
 import java.util.Random;
 
+/**
+ * E0501. Crea una tabla de longitud 10 que se inicializará con números aleatorios comprendidos
+ * entre 1 y 100. Muestra la suma de todos los números aleatorios que se guardan en la tabla.
+ * Genera dos métodos para resolver el problema
+ */
+
 public class E0501 {
     public static void main(String[] args) {
         // Crea una tabla de longitud 10 que se inicializará con números aleatorios comprendidos entre 1 y 100.

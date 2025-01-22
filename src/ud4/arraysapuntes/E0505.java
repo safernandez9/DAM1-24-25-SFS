@@ -3,7 +3,13 @@ package ud4.arraysapuntes;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * E0505. Escribe la función: static int[] rellenaPares(int longitud, int
+ * fin) que crea y devuelve una tabla ordenada de la longitud especificada rellena con
+ * números pares aleatorios en el rango desde 2 hasta el valor de fin inclusive.
+ */
 public class E0505 {
+    
     /**
      * Crea y devuelve una tabla ordenada de la longitud especificada rellena con números pares aleatorios en el rango desde 2 hasta el valor de fin inclusive.
      * @param longitud

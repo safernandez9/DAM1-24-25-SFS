@@ -2,6 +2,11 @@ package ud4.arraysapuntes;
 
 import java.util.Arrays;
 
+/**
+ * E0504. Diseñar la función: static int maximo(int t[]) que devuelva el máximo
+ * valor contenido en la tabla t
+ */
+
 public class E0504 {
     static Integer maximo(int t[]) {
         if (t == null || t.length == 0)

@@ -4,6 +4,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * E0509. Diseña una aplicación para gestionar un campeonato de programación donde se
+ * introduce la puntuación obtenida por 5 programadores, conforme van terminando la
+ * prueba, en forma de números enteros. La aplicación debe mostrar las puntuaciones
+ * ordenadas de los 5 participantes. En ocasiones, cuando finalizan los 5 participantes
+ * anteriores, se suman al campeonato programadores de exhibición cuyas puntuaciones se
+ * incluyen con el resto. La forma de especificar que no intervienen más programadores de
+ * exhibición es introducir como puntuación un -1. Por último, la aplicación debe mostrar los
+ * puntos ordenados de todos los participantes.
+ */
+
 public class E0509 {
     public static void main(String[] args) {
         final int NUM = 5;

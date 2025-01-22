@@ -2,6 +2,15 @@ package ud4.arraysapuntes;
 
 import java.util.Arrays;
 
+/**
+ * E0507. Implementar la función int[] sinRepetidos(int t[]) que construye y
+ * devuelve una tabla de la longitud apropiada, con los elementos de t, donde se han
+ * eliminado los datos repetidos.
+ * Implementa una función que genere y devuelva un array de n números enteros aleatorios
+ * usando el siguiente prototipo:
+ * int[] tablaRandom(int n)
+ */
+
 public class E0508 {
     public static void main(String[] args) {
         int[] t = {5, 2, 7, 9, 4, 1, 8, 5, 4, 2, 8};

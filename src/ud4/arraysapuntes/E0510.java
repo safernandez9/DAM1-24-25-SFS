@@ -2,6 +2,13 @@ package ud4.arraysapuntes;
 
 import java.util.Arrays;
 
+/**
+ * E0510. Escribir la función:
+ * int[] eliminarMayores(int t[], int valor)
+ * que crea y devuelve una copia de la tabla t donde se han eliminado todos los elementos
+ * que son mayores que valor.
+ */
+
 public class E0510 {
     /**
      * Elimina los elementos mayores que un valor de un array de enteros.

@@ -2,6 +2,15 @@ package ud4.arraysapuntes;
 
 import java.util.Arrays;
 
+/**
+ * E0506_Primitiva. Definir una función que tome como parámetros dos tablas, la primera
+ * con los 6 números de una apuesta de la primitiva, y la segunda (ordenada) con los 6
+ * números de la combinación ganadora. La función devolverá el número de aciertos.
+ * static int numAciertos(int[] apuesta, int[] ganadora)
+ * Crea un método que devuelve una tabla de números enteros aleatorios entre dos
+ * números y de una longitud especificada.
+ * static int[] tablaAleatoria(int numInicio, int numFin, int longitud);
+ */
 public class E0506_Primitiva {
     static int numAciertos(Integer[] apuesta, Integer[] ganadora) {
         int numAciertos = 0;
