@@ -41,8 +41,8 @@ public class AbadiasPirenaicas {
 
             abadias = getMontanasAbadias(mont);
 
-            System.out.printf("Se pueden construir un total de %d abadías en los picos: ", abadias[abadias.length - 1]);
-            for (int i = 0; i < abadias.length - 2; i++) {
+            System.out.printf("Se pueden construir un total de %d abadías en los picos: ", abadias[0]);
+            for (int i = 1; i < abadias.length; i++) {
                 System.out.println(" " + abadias[i]);
             }
         }
