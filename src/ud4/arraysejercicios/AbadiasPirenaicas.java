@@ -55,8 +55,13 @@ public class AbadiasPirenaicas {
         int picoMax;
         int[] abadias = new int[1];
 
+        //Cargo en el primer elemento del array la montaña mas al este y guardo su altura
+
         abadias[0] = MontanasCordillera.length;
         picoMax = MontanasCordillera[MontanasCordillera.length - 1];
+
+        //Comparo cada montaña con la mas alta a su este (drch), si es mayor la guardo como abadia
+        //El Array abadia se incrementa por cada pico con abadia
 
         for (int i = MontanasCordillera.length - 2; i > 0; i--) {
             if (MontanasCordillera[i] > picoMax) {
@@ -66,8 +71,13 @@ public class AbadiasPirenaicas {
             }
         }
 
+        //Incremento el Array una posicion mas para guardar el nº de abadias (esta celda queda a 0)
         abadias = Arrays.copyOf(abadias, abadias.length + 1);
+        
+        //Con el sort la celda con el 0 queda primera
         Arrays.sort(abadias);
+
+        //Cargo en la primera celda el numero de abadías
         abadias[0] = abadias.length - 1;
 
         return abadias;
