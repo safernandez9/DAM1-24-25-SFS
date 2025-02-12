@@ -1,5 +1,11 @@
 package ud4.stringsapuntes;
 
+/**
+ * E0613. Diseñar un algoritmo que lea del teclado una frase e indique, para cada letra que
+ * aparece en la frase, cuántas veces se repite. Se consideran iguales las letras mayúsculas
+ * y las minúsculas para realizar la cuenta.
+ */
+
 public class E0613 {
     public static void main(String[] args) {
         String frase = "En un lugar de La Mancha.";
