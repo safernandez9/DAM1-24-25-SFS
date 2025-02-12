@@ -44,4 +44,17 @@ package ud4.arraysejercicios;
 
 public class RecorridoRobot {
     
+    public static void main(String[] args) {
+        //NUMERO MINAS
+        //TAM TABLERO
+        //INSTRUCCIONES
+    }
+
+
+    static boolean recorridoRobot(String[] mapa, String instrucciones){
+    
+    }
+
 }
+
+
