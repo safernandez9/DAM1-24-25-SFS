@@ -2,6 +2,14 @@ package ud4.stringsapuntes;
 
 import java.util.Scanner;
 
+/**
+ * E0606. Escribir un programa que pida el nombre completo al usuario y lo muestre sin
+ * vocales (mayúsculas, minúsculas y acentuadas). Por ejemplo, “Álvaro Pérez” quedaría
+ * como “lvr Prz”.
+ * Implementa un método con el siguiente prototipo:
+ * static String sinVocales(String cad)
+ */
+
 public class E0606 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -9,6 +17,7 @@ public class E0606 {
         String nombre = sc.nextLine();
 
         System.out.println(sinVocales(nombre));
+        sc.close();
     }
 
     static String sinVocales(String cad) {

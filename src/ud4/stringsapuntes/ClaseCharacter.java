@@ -1,8 +1,17 @@
 package ud4.stringsapuntes;
 
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+/**
+ * ClaseCharacter. Crea un programa que lea un caracter de teclado y, utilizando los
+ * métodos anteriores de la clase Character, imprima:
+ * ● Si es un dígito
+ * ● Si es una letra
+ * ● Si es un dígito o una letra
+ * ● etc.
+ * ● Si es mayúscula y en caso afirmativo mostrar la letra minúscula equivalente.
+ * ● Si es minúscula y en caso afirmativo mostrar la letra mayúscula equivalente
+ */
 
 public class ClaseCharacter {
     public static void main(String[] args) {
