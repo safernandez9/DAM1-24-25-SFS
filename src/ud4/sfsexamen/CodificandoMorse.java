@@ -18,7 +18,7 @@ public class CodificandoMorse {
         retorno = numPuntosMorse(frase3);
         System.out.println(retorno);
         retorno = numPuntosMorse(frase4);
-        
+        System.out.println(retorno);
 
     }
 
@@ -30,27 +30,44 @@ public class CodificandoMorse {
                 "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-",
                 ".--", "-..-", "-.--", "--..",
                 "-.-.--", "..--.." };
-                
 
-        int duracion = 0; 
+        int duracion = 0;
         String codigo;
         int indice;
 
-        for(int i = 0; i < frase.length(); i++){
+        for (int i = 0; i < frase.length(); i++) {
             char c = frase.charAt(i);
-            if(c == ' '){                   //Si es un espacio entre palabras sumo 5
+            if (c == ' ') { // Si es un espacio entre palabras sumo 5
                 duracion += 5;
-            }else{
+            } else {
                 indice = letras.indexOf(c);
-                if(indice != -1){
+                if (indice != -1) {
                     codigo = letrasMorse[indice];
-                    duracion += codigo.replace("-", "111").replace(".", "1").length();
-                    duracion += 3;
+
+                    for (int j = 0; j < codigo.length(); j++) {
+                        if (codigo.charAt(j) == '.') {
+                            duracion += 1;
+                        } else if (codigo.charAt(j) == '-') {
+                            duracion += 3;
+                        }
+
+                        if (j < codigo.length() - 1) {
+                            duracion += 1;
+                        }
+                    }
+                    if (i < frase.length() - 1) {
+                        if (frase.charAt(i + 1) != ' ') {
+                            duracion += 3;
+                        } else {
+                            duracion += 5;
+                        }
+                    }
                 }
             }
+
         }
 
-        return duracion > 3 ? duracion - 3 : duracion;
-    }
+        return duracion;
 
+    }
 }
