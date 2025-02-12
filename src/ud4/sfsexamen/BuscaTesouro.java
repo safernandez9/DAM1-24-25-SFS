@@ -95,13 +95,25 @@ public class BuscaTesouro {
             System.out.println(
                     "Intento " + intentos + " .Introduzca las coordenadas en las que cree que esta el tesoro:");
 
+            while (true) {
 
-            System.out.println("Filas (de 0 a " + tamFila + "): ");
-            jugadorX = sc.nextInt();
-            System.out.println("Columnas ( de 0 a " + tamCol + "): ");
-            jugadorY = sc.nextInt();
+                try {
 
-            
+                    System.out.println("Filas (de 0 a " + tamFila + "): ");
+                    jugadorX = sc.nextInt();
+                    System.out.println("Columnas ( de 0 a " + tamCol + "): ");
+                    jugadorY = sc.nextInt();
+
+                    if (jugadorX >= 0 && jugadorY >= 0) {
+                        break;
+                    }
+
+                    System.out.println("Los numeros deben ser superiores a 0");
+                } catch (InputMismatchException err) {
+                    System.out.println("Tipo de dato incorrecto.");
+                    sc.next();
+                }
+            }
 
             if (coordTesoro[0] == jugadorX || coordTesoro[1] == jugadorY) { // Caso en el que alguna de las coordenadas
                                                                             // coincide
