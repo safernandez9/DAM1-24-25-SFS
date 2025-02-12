@@ -5,6 +5,7 @@ package ud4.arraysejercicios;
  * aplicación debe decidir si la matriz introducida corresponde a una matriz mágica, que es aquella
  * donde la suma de los elementos de cualquier fila o de cualquier columna valen lo mismo.
  */
+
 public class EP018_MatrizMagica{
 
     public static void main(String [] args){
