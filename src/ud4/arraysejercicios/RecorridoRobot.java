@@ -48,6 +48,7 @@ public class RecorridoRobot {
         //NUMERO MINAS
         //TAM TABLERO
         //INSTRUCCIONES
+        //GENERO MAPA PONIENTO LOS CARACTERES EN SUS SITIOS
     }
 
 
