@@ -3,7 +3,6 @@
 package ud4.sfsexamen;
 
 import java.lang.Math;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -48,6 +47,7 @@ public class BuscaTesouro {
 
         System.out.println("El resultado ha sido: " + resultado[0] + " en un total de " + resultado[1] + " intentos.");
 
+        sc.close();
     }
 
     /**
@@ -79,6 +79,7 @@ public class BuscaTesouro {
      * @param coordTesoro
      * @return
      */
+    @SuppressWarnings("resource")
     public static String[] buscaTesoro(int[][] mapa, int maxIntentos, int[] coordTesoro) {
 
         int intentos = 1;
