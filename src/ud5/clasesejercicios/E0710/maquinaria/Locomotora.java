@@ -14,5 +14,18 @@ public class Locomotora {
         this.anhoFabricacion = anhoFabricacion;
         this.mecanico = mecanico;
     }
+
+    @Override
+    public String toString() {
+        return "Locomotora [matricula=" + matricula + ", potencia=" + potencia + ", anhoFabricacion=" + anhoFabricacion
+                + ", mecanico=" + mecanico + "]";
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+
+    
     
 }
