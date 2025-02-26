@@ -7,7 +7,7 @@ public class Persona {
     private String apellido2;
     int edad;
     double estatura = 1.80;
-    final String dni = null;
+    String dni;
     enum Sexo {HOMBRE, MUJER, NO_BINARIO}
     Sexo sexo;
 
@@ -45,8 +45,30 @@ public class Persona {
 
     // Otros Métodos
 
-
+    @Override
+    public String toString() {
+        return nombre + "(" + edad + ")";
+    }
     
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Persona other = (Persona) obj;
+        if (dni == null)
+            return false;
+        if (other.dni == null)
+            return false;
+        if (!dni.equals(other.dni))
+            return false;
+        return true;
+    }
+
     public void mostrarDatos() {
         System.out.println("PERSONA:");
         System.out.println(nombre);
