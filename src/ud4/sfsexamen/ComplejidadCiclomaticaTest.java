@@ -86,4 +86,14 @@ class ComplejidadCiclomaticaTest {
         };
         assertEquals(6, ComplejidadCiclomatica.complejidadCiclomatica(grafoComplejo2));
     }
+
+    @Test
+    void testComplejidadCiclomatica() {
+        
+    }
+
+    @Test
+    void testMain() {
+        
+    }
 }
