@@ -68,7 +68,7 @@ static int complejidadCiclomatica(int[][] grafo){
     int aristas = 0;
     int nodos = grafo.length;
     int complejidad;
-
+       
     for(int i = 0; i < grafo.length; i++){
         aristas += grafo[i].length;
     }
