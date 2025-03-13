@@ -1,8 +1,8 @@
-package ud5.clasesejercicios.E0710.maquinaria;
+package ud5.clasesejercicios.E0710_trenes.maquinaria;
 
 import java.util.Arrays;
 
-import ud5.clasesejercicios.E0710.personal.Maquinista;
+import ud5.clasesejercicios.E0710_trenes.personal.Maquinista;
 
 public class Tren {
     static final byte MAX_VAGONES = 5;

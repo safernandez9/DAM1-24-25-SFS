@@ -1,4 +1,4 @@
-package ud5.clasesejercicios.E0710.maquinaria;
+package ud5.clasesejercicios.E0710_trenes.maquinaria;
 
 class Vagon {
     int id;

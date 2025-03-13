@@ -1,6 +1,6 @@
-package ud5.clasesejercicios.E0710.maquinaria;
+package ud5.clasesejercicios.E0710_trenes.maquinaria;
 
-import ud5.clasesejercicios.E0710.personal.Mecanico;
+import ud5.clasesejercicios.E0710_trenes.personal.Mecanico;
 
 public class Locomotora {
     String matricula;

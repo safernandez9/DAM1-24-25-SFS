@@ -1,8 +1,8 @@
-package ud5.clasesejercicios.E0710.personal;
+package ud5.clasesejercicios.E0710_trenes.personal;
 
 import java.time.LocalDate;
 
-import ud5.clasesejercicios.E0710.maquinaria.Locomotora;
+import ud5.clasesejercicios.E0710_trenes.maquinaria.Locomotora;
 
 public class Mecanico {
     String nombre;
