@@ -1,18 +1,26 @@
 package ud5.inmobiliaria;
 
 public class Piso extends Inmueble{
+    int numPlanta;
 
-    int superficie;
-    int planta;
+    public Piso(String direccion, int m2, int numHab, int numBanhos, int numPlanta) {
+        super(direccion, m2, numHab, numBanhos);
+        this.numPlanta = numPlanta;
+    }
 
-    public Piso(String direccion, int numBaños, int numHabitaciones, int superficie, int planta) {
+    @Override
+    String detalle() {
+        String str = "Piso en " + direccion + ".\n"
+         + m2 + " m2, " + numHab + " hab, " + numBanhos+ " baños, " + numPlanta + "ª planta.\n";
+         if (precioAlquiler > 0)
+         str += "Precio de Alquiler: " + precioAlquiler + " €\n";
 
-        super(direccion, numBaños, numHabitaciones);
-        this.superficie = superficie;
-        this.planta = planta;
+         if (precioVenta > 0)
+         str += "Precio de Venta: " + precioVenta + " €\n";
+
+        return str;
     }
 
     
-    
-     
+
 }

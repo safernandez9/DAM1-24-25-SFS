@@ -1,15 +1,23 @@
 package ud5.inmobiliaria;
 
-public class Casa extends Inmueble {
+public class Casa extends Inmueble{
+    int m2Terreno;
 
-    int mConstruidos;
-    int mTerreno;
-    
-
-    public Casa(String direccion, int numBaños, int numHabitaciones, int mConstruidos, int mTerreno) {
-
-        super(direccion, numBaños, numHabitaciones);
-        this.mConstruidos = mConstruidos;
-        this.mTerreno = mTerreno;
+    public Casa(String direccion, int m2, int numHab, int numBanhos, int m2Terreno) {
+        super(direccion, m2, numHab, numBanhos);
+        this.m2Terreno = m2Terreno;
     }
-}
+
+    @Override
+    String detalle() {
+        String str = "Casa en " + direccion + ".\n"
+         + m2 + " m2, " + numHab + " hab, " + numBanhos+ " baños, con terreno de " + m2Terreno + " m2.\n";
+         if (precioAlquiler > 0)
+         str += "Precio de Alquiler: " + precioAlquiler + " €\n";
+
+         if (precioVenta > 0)
+         str += "Precio de Venta: " + precioVenta + " €\n";
+
+        return str;
+    }
+    }
