@@ -1,10 +1,10 @@
-package ud5.clasesejercicios.E0710;
+package ud5.clasesejercicios.E0710_trenes;
 
 import java.time.LocalDate;
 
-import ud5.clasesejercicios.E0710.maquinaria.Locomotora;
-import ud5.clasesejercicios.E0710.maquinaria.Tren;
-import ud5.clasesejercicios.E0710.personal.*;
+import ud5.clasesejercicios.E0710_trenes.maquinaria.Locomotora;
+import ud5.clasesejercicios.E0710_trenes.maquinaria.Tren;
+import ud5.clasesejercicios.E0710_trenes.personal.*;
 
 
 public class App {
