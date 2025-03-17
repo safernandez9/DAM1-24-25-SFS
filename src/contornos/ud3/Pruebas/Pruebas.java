@@ -1,4 +1,4 @@
-package contornos.ud3;
+package contornos.ud3.Pruebas;
 
 import java.util.Scanner;
 
