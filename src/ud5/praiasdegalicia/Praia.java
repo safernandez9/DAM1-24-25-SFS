@@ -1,7 +1,6 @@
 package ud5.praiasdegalicia;
 
-
-public class Praia implements Comparable<Praia> {
+public class Praia {
     private int id;
     private String nome;
     private String concello;
@@ -78,32 +77,6 @@ public class Praia implements Comparable<Praia> {
 
     public void setLon(double lon) {
         this.lon = lon;
-    }
-
-    // Método toString()
-    @Override
-    public String toString() {
-        return String.format("%-5d - %-25s - %-15s - %-10s - (%.4f, %.6f)",
-                id, nome, concello, provincia, lat, lon);
-    }
-
-    // Método compareTo() para comparar por el nombre de la playa
-    @Override
-    public int compareTo(Praia outraPraia) {
-        return this.nome.compareTo(outraPraia.getNome());
-    }
-
-    // Método mostrarDetalle()
-    public void mostrarDetalles() {
-        System.out.println("Detalles: " + id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", "
-                + lon + ")");
-    }
-
-    // Método imprimirLista() que imprime una lista de playas
-    public static void imprimirLista(Praia[] praias, int numPraias) {
-        for (int i = 0; i < numPraias; i++) {
-            System.out.println(praias[i]);
-        }
     }
 
 }
