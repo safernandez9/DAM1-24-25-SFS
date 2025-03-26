@@ -250,4 +250,14 @@ public class Personaje {
         return nombre + " (" + puntosDeVida + "/" + (PUNTOS_VIDA_BASE + constitucion) + ")";
     }
 
+    public boolean estaVivo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'estaVivo'");
+    }
+
+    public int atacar(Personaje defensor) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'atacar'");
+    }
+
 }

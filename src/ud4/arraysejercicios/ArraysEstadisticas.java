@@ -122,6 +122,7 @@ public class ArraysEstadisticas {
         int moda = numeros[0];
         int cont = 0;
         int contModa = 0;
+                return contModa;
         
        
 

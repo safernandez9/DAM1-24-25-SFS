@@ -67,4 +67,9 @@ public class User {
         return this.username;
     }
 
+    public String getUsername() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
+    }
+
 }
