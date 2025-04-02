@@ -2,6 +2,8 @@ package ud6.apuntescolecciones;
 
 import java.util.*;
 
+import ud5.rol.Personaje;
+
 /**
  * E1213. Implementar la clase Sorteo con parámetros genéricos. Deberá guardar
  * un
@@ -42,14 +44,17 @@ public class Sorteo<T> {
     }
 
     public static void main(String[] args) {
-        Sorteo sorteo = new Sorteo<>();
-        sorteo.add(1);
-        sorteo.add(2);
-        sorteo.add(3);
-        sorteo.add(4);
-        sorteo.add(5);
+        // Crea un sorteo entre 4 personajes para seleccionar los 2 que se enfrentarán
+        // en combate singular
+        Sorteo<Personaje> sorteo = new Sorteo<>();
+        sorteo.add(new Personaje("Aragorn", Raza.HUMANO, 90, 90, 90, 10, 16252, 125));
+        sorteo.add(new Personaje("Mara", Raza.ELFO, 100, 100, 100));
+        sorteo.add(new Personaje("Dodol Bazbal", Raza.ENANO));
+        sorteo.add(new Personaje("Lady Jet"));
 
-        System.out.println("Premiados: " + sorteo.premiados(3));
+        Set<Personaje> elegidos = sorteo.premiados(2);
+
+        System.out.println(elegidos);
     }
 
 }
