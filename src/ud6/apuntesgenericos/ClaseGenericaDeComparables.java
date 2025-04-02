@@ -6,7 +6,7 @@ class ClaseGenericaDeComparables<T extends Comparable> {
     T a, b, c;
     //operaciones con a y b
 
-     public ClaseGenericaDeComparables(T a, T b, T c) {
+        public ClaseGenericaDeComparables(T a, T b, T c) {
         this.a = a;
         this.b = b;
         this.c = c;
