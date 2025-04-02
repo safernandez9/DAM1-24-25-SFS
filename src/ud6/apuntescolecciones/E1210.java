@@ -1,4 +1,4 @@
-package ud6;
+package ud6.apuntescolecciones;
 
 import java.util.ArrayList;
 import java.util.List;
