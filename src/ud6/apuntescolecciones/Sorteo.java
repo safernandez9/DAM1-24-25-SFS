@@ -1,46 +1,46 @@
 package ud6.apuntescolecciones;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import ud5.rol.Personaje;
-
-/**
- * E1213. Implementar la clase Sorteo con parámetros genéricos. Deberá guardar
- * un
- * conjunto de valores distintos de tipo genérico, suministrados por consola y
- * será capaz de
- * generar una combinación premiada de un tamaño determinado. Deberán
- * implementarse.
- * como minimo, los métodos:
- * ● boolean add (T elemento) que añadirá un elemento nuevo al conjunto de
- * valores posibles en una apuesta. Si el elemento se añade, devuelve true y, en
- * caso contrario, debido a que ya estaba presente, false.
- * ● Set<T> premiados (int numPremiados) que devolverá una combinación
- * ganadora de numPremiados elementos distintos
- */
+import ud5.rol.Personaje.Raza;
 
 public class Sorteo<T> {
 
-    private Set elementos;
-    private Random random;
+    Set<T> elementos;
 
     public Sorteo() {
-        this.elementos = new HashSet<>();
-        this.random = new Random();
+        elementos = new HashSet<>();
     }
 
-    public boolean add(T elemento) {
+    boolean add(T elemento) {
         return elementos.add(elemento);
     }
 
-    public Set<T> premiados(int numPremiados) {
-        if (numPremiados > elementos.size()) {
-            throw new IllegalArgumentException("No hay suficientes elementos para premiar");
+    Set<T> premiados(int numPremiados) {
+
+        if (numPremiados <= 0)
+            return null;
+
+        if (numPremiados > elementos.size())
+            numPremiados = elementos.size();
+
+        Set<T> premiados = new LinkedHashSet<>();
+
+        List<T> lista = new ArrayList<>(elementos);
+        Collections.shuffle(lista);
+
+        for (int i = 0; i < numPremiados; i++) {
+            premiados.add(lista.get(i));
         }
 
-        List<T> listaElementos = new ArrayList<>(elementos);
-        Collections.shuffle(listaElementos, random);
-        return new HashSet<>(listaElementos.subList(0, numPremiados));
+        return premiados;
     }
 
     public static void main(String[] args) {
