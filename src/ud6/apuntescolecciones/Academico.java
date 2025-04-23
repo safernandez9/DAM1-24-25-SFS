@@ -6,74 +6,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
-/**
- * E1216. Los miembros de la Real Academia de la Lengua ocupan sillones con las
- * letras
- * del abecedario español, minúsculas y mayúsculas (en la práctica, las letras
- * v, w, x, y, z, N,
- * W, Y nunca se ocupan, pero nosotros no lo tendremos en cuenta). Cuando un
- * sillón
- * queda vacante, se nombra un nuevo académico para ocuparlo.
- * 
- * Implementar la clase Academico cuyos atributos son el nombre y el año de
- * ingreso. El
- * criterio de ordenación natural será por nombres.
- * 
- * Implementar un programa donde se cargan los datos de los académicos se crean
- * cinco
- * objetos Academico, que se insertan en un mapa en el que la clave es la letra
- * del sillón que ocupan,
- * y el valor un objeto de la clase Academico. Para ello implementar el método
- * estático:
- * 
- * static boolean nuevoAcademico (Map<Character, Academico> academia, Academico
- * nuevo, Character letra)
- * 
- * donde se lleva a cabo la inserción después de comprobar que el carácter
- * pasado como
- * parámetro es una letra del abecedario.
- * 
- * Hacer diversos listados de los académicos:
- * 
- * 1. primero sin letra, por orden de nombre y de año de ingreso;
- * 2. y después con letra, por orden de letra (clave), nombre y fecha de
- * ingreso.
- * Debemos recordar que en código Unicode, las mayúsculas van antes que las
- * minúsculas.
- * 
- * Utiliza el método del repositorio para cargar y preparar los datos del
- * fichero de texto:
- * public static String readFileToString(String filePath)
- * 
- * DATOS
- * Fichero en materias: DATOS - Académicos RAE (2025_04_11).txt
- */
-
-public class Academico implements Comparable<Academico> {
-
-    private String nombre;
-    private int anhoIngreso;
+public class Academico implements Comparable<Academico>{
+    String nombre;
+    int anhoIngreso;
 
     public Academico(String nombre, int anhoIngreso) {
         this.nombre = nombre;
         this.anhoIngreso = anhoIngreso;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getanhoIngreso() {
-        return anhoIngreso;
-    }
-
-    @Override
-    public int compareTo(Academico a) {
-        return this.nombre.compareTo(a.nombre);
     }
 
     @Override
@@ -81,55 +27,83 @@ public class Academico implements Comparable<Academico> {
         return nombre + " (" + anhoIngreso + ")";
     }
 
-    public static void main(String[] args) {
+    @Override
+    public int compareTo(Academico o) {
+        return nombre.compareTo(o.nombre);
+    }
+    
+    
 
-        Map<Character, Academico> academia = new TreeMap<>();
+
+
+    public static void main(String[] args) {
+        Map<Character, Academico> academia = new LinkedHashMap<>();
 
         String contenidoFichero = readFileToString("src/ud6/apuntescolecciones/academicos.txt");
         // System.out.println(contenidoFichero);
-        String[] lineas = contenidoFichero.split("\n");
+        String[] lineas = contenidoFichero.split("\\n");
         // System.out.println(Arrays.toString(lineas));
-
         for (int i = 0; i < lineas.length; i++) {
             Character letra = lineas[i].charAt(6);
             String nombre = lineas[i].substring(7, lineas[i].length() - 6);
-            int anhoIngreso = Integer.parseInt(lineas[i].substring(lineas[i].length() - 5, lineas[i].length() - 1));
-            System.out.println(letra + " - " + nombre + " ( " + anhoIngreso + " ) ");
-            nuevoAcademico(academia, new Academico(nombre, anhoIngreso), letra);
+            int anho = Integer.parseInt(lineas[i].substring(lineas[i].length() - 5, lineas[i].length() - 1));
+            // System.out.println(letra + " - " + nombre + " ( " + anho + ")");
+            nuevoAcademico(academia, new Academico(nombre, anho), letra);
         }
 
-        // Sin letra, por nombre
-
-        List<Academico> listaAcademicos = new ArrayList<>(academia.values());
-        Collections.sort(listaAcademicos);
-        System.out.println("Listado por nombre:");
-        for (Academico a : listaAcademicos) {
+        // académicos: sin letra, por orden de nombre
+        System.out.println("\nAcadémicos: sin letra, por orden de nombre");
+        System.out.println("==========================================\n");
+        List<Academico> lista = new ArrayList<>(academia.values());
+        Collections.sort(lista);
+        for (Academico a : lista){
             System.out.println(a);
         }
 
-        // Sin letra, por año de ingreso
-        listaAcademicos.sort(new Comparator<>() {
+
+        // académicos: sin letra, por orden de nombre
+        System.out.println("\nAcadémicos: sin letra, por orden de año de ingreso y por nombre");
+        System.out.println("===============================================================\n");
+        lista.sort(new Comparator<>() {
             @Override
-            public int compare(Academico a1, Academico a2) {
-                int res = a1.anhoIngreso - a2.anhoIngreso;
+            public int compare(Academico o1, Academico o2) {
+                int res = o1.anhoIngreso - o2.anhoIngreso;
                 if (res == 0)
-                    res = a1.nombre.compareTo(a2.nombre);
+                    res = o1.nombre.compareTo(o2.nombre);
                 return res;
             }
         });
 
-        System.out.println("\nListado por año de ingreso:");
-        for (Academico a : listaAcademicos) {
+        for (Academico a : lista){
             System.out.println(a);
         }
 
-        // Listado con letra (orden por clave)
-        System.out.println("\nListado con letra:");
-        for (Map.Entry entry : academia.entrySet()) {
-            System.out.println("Letra " + entry.getKey() + ": " + entry.getValue());
+
+        // académicos: sin letra, por orden de nombre
+        System.out.println("\nAcadémicos: con letra, por orden de letra (clave), indicando nombre y fecha");
+        System.out.println("===========================================================================\n");
+        Set<Character> letras = academia.keySet();
+        for (Character letra : letras) {
+            Academico a = academia.get(letra);
+            System.out.println(letra + " - " + a);
         }
+
     }
 
+    static boolean nuevoAcademico(Map<Character, Academico> academia, Academico nuevo, Character letra) {
+        if (Character.isLetter(letra)) {
+            academia.put(letra, nuevo);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Lee y carga el contenido de un fichero de texto a un String (fuente OpenAI)
+     * 
+     * @param filePath
+     * @return
+     */
     public static String readFileToString(String filePath) {
         StringBuilder fileContent = new StringBuilder();
         try {
@@ -155,17 +129,9 @@ public class Academico implements Comparable<Academico> {
             System.out.println("No existe el fichero.");
             // e.printStackTrace();
         }
-                return filePath;
-    }
-    
 
-    public static boolean nuevoAcademico(Map<Character, Academico> academia, Academico nuevoAcademico,
-            Character letra) {
-        if (Character.isLetter(letra)) {
-            academia.put(letra, nuevoAcademico);
-            return true;
-        }
-        return false;
+        // Devolvemos el contenido del fichero como un String
+        return fileContent.toString();
     }
 
 }

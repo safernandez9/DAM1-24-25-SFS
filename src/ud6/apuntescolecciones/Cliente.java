@@ -6,24 +6,30 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.List;
 
 // Clase Cliente para ejemplos posteriores.
-public class Cliente implements Comparable<Cliente>{
+public class Cliente implements Comparable<Cliente> {
     String dni;
     String nombre;
     LocalDate fechaNacimiento;
-    
+
     public Cliente(String dni, String nombre, String fechaNacimiento) {
         this.dni = dni;
         this.nombre = nombre;
-        DateTimeFormatter formatoFechas= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoFechas = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.fechaNacimiento = LocalDate.parse(fechaNacimiento, formatoFechas);
     }
 
-    private int edad() {
+    
+
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+    public int getEdad() {
         return (int) fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
     }
 
@@ -52,12 +58,9 @@ public class Cliente implements Comparable<Cliente>{
         return true;
     }
 
-
-    
-
     @Override
     public String toString() {
-        return "DNI: " + dni + " Nombre: " + nombre + " Edad: " + edad() + " \n";
+        return "DNI: " + dni + " Nombre: " + nombre + " Edad: " + getEdad() + " \n";
     }
 
     @Override
@@ -65,13 +68,50 @@ public class Cliente implements Comparable<Cliente>{
         return dni.compareTo(o.dni);
     }
 
+    /*
+     * GETTERSY SETTERS
+     */
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+
+    
+    public static List<Cliente> clientesDeEjemplo() {
+        List<Cliente> clientes = new ArrayList<Cliente>();
+        clientes.add(new Cliente("34534534Z", "Pepe", "20/12/2000"));
+        clientes.add(new Cliente("34534534Z", "Pepe", "20/12/2005"));
+        clientes.add(new Cliente("34555534Z", "María", "20/12/2009"));
+        clientes.add(new Cliente("22222234Z", "Lola", "20/12/2003"));
+        return clientes;
+    }    
+
     public static void main(String[] args) {
-        Collection<Cliente> clientes = new ArrayList<>();  
+        Collection<Cliente> clientes = new ArrayList<>();
         System.out.println(clientes.size());
-        clientes.add(new Cliente("34534534Z", "Pepe", "20/12/2000"));
-        clientes.add(new Cliente("34534534Z", "Pepe", "20/12/2000"));
-        clientes.add(new Cliente("34555534Z", "María", "20/12/2000"));
-        clientes.add(new Cliente("22222234Z", "Lola", "20/12/2000"));
+
+        clientes = clientesDeEjemplo();
 
         System.out.println(clientes.size());
         System.out.println(clientes.contains(new Cliente("34534534Z", "Pepe", "20/12/2000")));
@@ -83,14 +123,16 @@ public class Cliente implements Comparable<Cliente>{
         for (Cliente cliente : clientes) {
             System.out.println(cliente.nombre);
 
-            /* ERROR: Con un bucle for each no podemos borrar elementos de la colección
-              if (cliente.nombre.equals("Pepe"))
-                clientes.remove(cliente);  */          
+            /*
+             * ERROR: Con un bucle for each no podemos borrar elementos de la colección
+             * if (cliente.nombre.equals("Pepe"))
+             * clientes.remove(cliente);
+             */
         }
 
         System.out.println("IMPRESIÓN CON ITERADOR");
         Iterator<Cliente> it = clientes.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             Cliente c = it.next();
             System.out.println(c.nombre);
             if (c.nombre.equals("Pepe")) {
@@ -99,11 +141,10 @@ public class Cliente implements Comparable<Cliente>{
         }
 
         System.out.println("Colección sin Pepes");
-        System.out.println(clientes);        
-
+        System.out.println(clientes);
 
         Object[] arrayObject = clientes.toArray();
-        ((Cliente)arrayObject[0]).nombre = "Marta";
+        ((Cliente) arrayObject[0]).nombre = "Marta";
 
         Cliente[] arrayClientes = clientes.toArray(new Cliente[0]);
         arrayClientes[0].nombre = "Marta2";
@@ -113,11 +154,8 @@ public class Cliente implements Comparable<Cliente>{
         Collection<Cliente> listaClientes = Arrays.asList(arrayClientes);
         System.out.println("De nuevo una lista: " + listaClientes);
 
-
-
     }
 
 
+
 }
-
-
