@@ -5,8 +5,23 @@ import java.util.Comparator;
 
 import ud5.apuntesherencia.Persona;
 import ud5.rol.Personaje;
+import ud6.apuntesgenericos.E1203PilasYColas.Cola;
+import ud6.apuntesgenericos.E1203PilasYColas.Pila;
+
+/**
+ * E1202. Implementar, con tipos genéricos, la clase ContenedorLista, donde podremos guardar 
+ * tantos objetos como deseemos. Para ello utilizaremos una tabla, que inicialmente tendrá tamaño 
+ * cero y se irá redimensionando según añadamos o eliminemos elementos. La clase, además del 
+ * constructor y toString(), tendrá los siguientes métodos: 
+ * ● void insertarAlPrincipio(T nuevo) 
+ * ● void insertarAlFinal(T nuevo) 
+ * ● T extraerDelPrincipio() 
+ * ● T extraerDelFinal() 
+ * ● void ordenar() 
+ */
 
 public class ContenedorLista<T> implements Pila<T>, Cola<T> {
+    
     T[] objetos;
 
     public ContenedorLista(T[] t) {

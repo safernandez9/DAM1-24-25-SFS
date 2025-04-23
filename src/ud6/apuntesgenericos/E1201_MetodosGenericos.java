@@ -4,6 +4,31 @@ import java.util.Arrays;
 
 import ud5.apuntesherencia.Persona;
 
+/**
+ * E1201_MetodosGenericos. Implementar un método genérico estático que realice la
+ * inserción de un objeto al final de una tabla, ambos del mismo tipo genérico, que se pasan 
+ * como parámetros. Devuelve una nueva tabla con el resultado de la inserción. 
+ * 
+ * public static <U> U[] add(U e, U[] t) 
+ * 
+ * 
+ * Implementa un método genérico que devuelva true si un elemento se encuentra en un 
+ * array y false en caso contrario. 
+ * 
+ * public static <U> boolean buscar(U e, U[] t) 
+ * 
+ * 
+ * Implementa un método genérico estático al que se le pasan como parámetros dos tablas 
+ * con elementos del mismo tipo genérico y devuelve una nueva tabla con los elementos de 
+ * ambas concatenados (los de la segunda después de los de la primera). 
+ * 
+ * public static <U> U[] concatenar(U[] t1, U[] t2) 
+ * 
+ * public static <U, V> Object[] concatenar2(U[] t1, V[] t2)
+ * 
+ */
+
+ 
 public class E1201_MetodosGenericos {
     static <U> int numeroDeNulos(U[] tabla) {
         int cont = 0;
