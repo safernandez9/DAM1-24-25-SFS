@@ -100,7 +100,7 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
-        return true;
+        
     }
 
     public boolean removeIngrediente(String ingrediente) {
