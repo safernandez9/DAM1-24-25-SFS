@@ -79,13 +79,14 @@ public class Feitizo {
     }
 
     public static List<Feitizo> feitizosPosibles(Set<String> ingredientes, Collection<Feitizo> feitizos) {
-        List<Feitizo> posibles = new ArrayList<>();
-        for (Feitizo f : feitizos) {
-            if (Arrays.stream(f.getIngredientes()).allMatch(ingredientes::contains)) {
-                posibles.add(f);
-            }
+        List<Feitizo> feitizosPosibles = new ArrayList<>();
+
+        for (Feitizo feitizo : feitizos) {
+            if (ingredientes.containsAll(feitizo.ingredientes))
+                feitizosPosibles.add(feitizo);
         }
-        return posibles;
+
+        return feitizosPosibles;
     }
 
     public static Map<String, Integer> ingredientesVecesUsados(Collection<Feitizo> feitizos) {
@@ -114,7 +115,4 @@ public class Feitizo {
         return null;
     }
 
-    public static List<Feitizo> feitizosPosibles(Set<String> ingredientes) {
-        return null;
-    }
 }
