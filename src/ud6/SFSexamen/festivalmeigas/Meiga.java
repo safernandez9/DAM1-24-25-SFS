@@ -1,4 +1,6 @@
-package ud6.xxxexamen.festivalmeigas;
+//Saúl Fernández Salgado
+
+package ud6.SFSexamen.festivalmeigas;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import ud5.apuntesinterfaces.Socio;
 
 public class Meiga {
     // Atributos
@@ -98,4 +102,23 @@ public class Meiga {
         meigasExemplo[0].lanzarFeitizos();
     }
 
+
+    protected int lanzarFeitizos() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'lanzarFeitizos'");
+    }
+
+    @Override
+    public String toString() {
+
+        return this.nome + " (" + this.alcume + ")\n" + "Feitizos: " + this.feitizos + "Inventario: " + this.inventario
+                + "\n";
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Socio s1 = (Socio) o1;
+        Socio s2 = (Socio) o2;
+        return s1.fechaAlta.compareTo(s2.fechaAlta);
+    }
 }

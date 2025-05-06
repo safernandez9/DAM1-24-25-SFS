@@ -1,12 +1,14 @@
-package ud6.xxxexamen.festivalmeigas;
+//Saúl Fernández Salgado
+package ud6.SFSexamen.festivalmeigas;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Feitizo {
+public class Feitizo implements Comparable<Feitizo> {
     // Atributos
     private String nome;
     List<String> ingredientes;
@@ -87,4 +89,14 @@ public class Feitizo {
         }
     }
 
+    @Override
+    public String toString() {
+
+        return this.nome + "(" + this.dificultade + ")\n";
+    }
+
+    @Override
+    public int compareTo(Feitizo o) {
+        return this.nome.compareTo(o.nome);
+    }
 }

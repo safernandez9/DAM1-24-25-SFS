@@ -1,4 +1,5 @@
-package ud6.xxxexamen.festivalmeigas;
+//Saúl Fernández Salgado
+package ud6.SFSexamen.festivalmeigas;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,6 +17,8 @@ public class AppFestival {
         Meiga[] meigasExemplo = Meiga.crearMeigasExemplo(Feitizo.crearFeitizosExemplo());
 
         // TODO: Ordena as Meigas de menor a maior número de feitizos
+
+        
 
         // Para cada meiga do festival, imprime os seus datos, lanza os
         // feitizos posibles, e imprime os puntos obtidos.
