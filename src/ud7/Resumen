@@ -1,0 +1,262 @@
+1. Conceptos Básicos
+
+    Streams y Readers/Writers para texto
+    InputStreams/OutputStreams para binarios.
+    ObjectInputStream/ObjectOutputStream (serialización). Para objetos
+
+2. Lectura y Escritura de Ficheros de Texto
+
+    Escritura
+            Se puede usar FileWriter o BufferedWriter para escribir texto.
+
+            Ejemplo:
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("archivo.txt"))) {
+                bw.write("Hola Mundo");
+                bw.newLine(); // salto de línea
+                bw.write("Otra línea");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+    Lectura
+            Se puede usar FileReader o BufferedReader para leer línea a línea.
+
+            Ejemplo:
+
+            try (BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    System.out.println(linea);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+3. Lectura y Escritura de Ficheros Binarios
+       
+        Escritura
+            Se usan FileOutputStream para escribir bytes.
+
+            Ejemplo:
+
+            try (FileOutputStream fos = new FileOutputStream("archivo.bin")) {
+                byte[] datos = {1, 2, 3, 4};
+                fos.write(datos);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        Lectura
+            Se usan FileInputStream para leer bytes.
+
+            Ejemplo:
+
+            try (FileInputStream fis = new FileInputStream("archivo.bin")) {
+                int dato;
+                while ((dato = fis.read()) != -1) {
+                    System.out.print(dato + " ");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+4. Serialización de Objetos (Lectura y Escritura de Objetos)
+Clases que se puedan serializar
+La clase debe implementar Serializable.
+
+    Ejemplo:
+
+    import java.io.Serializable;
+
+    public class Persona implements Serializable {
+        private String nombre;
+        private int edad;
+        // constructor, getters, setters
+    }
+
+    Escritura de objetos
+            Usar ObjectOutputStream.
+
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("objetos.dat"))) {
+                Persona p = new Persona("Ana", 30);
+                oos.writeObject(p);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+    Lectura de objetos
+            Usar ObjectInputStream.
+
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("objetos.dat"))) {
+                Persona p = (Persona) ois.readObject();
+                System.out.println(p.getNombre() + " - " + p.getEdad());
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+5. Guardar y Leer Listas de Objetos
+
+            Escribir lista de objetos
+                    Simplemente escribir la lista completa (la lista debe ser serializable, por ejemplo, ArrayList).
+
+
+                    ArrayList<Persona> lista = new ArrayList<>();
+                    lista.add(new Persona("Ana", 30));
+                    lista.add(new Persona("Luis", 25));
+
+                    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("lista.dat"))) {
+                        oos.writeObject(lista);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+            Leer lista de objetos
+           
+                    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("lista.dat"))) {
+                        ArrayList<Persona> lista = (ArrayList<Persona>) ois.readObject();
+                        for (Persona p : lista) {
+                            System.out.println(p.getNombre() + " - " + p.getEdad());
+                        }
+                    } catch (IOException | ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+6. Aspectos a tener en cuenta
+
+    Excepciones: Siempre usar try-catch o try-with-resources para cerrar streams automáticamente.
+
+    Flujo cerrado: No usar streams después de cerrarlos.
+
+    SerialVersionUID: Para clases serializables, es recomendable declarar private static final long serialVersionUID para evitar problemas con versiones.
+
+    Archivo no encontrado: FileNotFoundException es común.
+
+    Casting: Al leer objetos hay que hacer cast a la clase correcta.
+
+    EOFException: Al leer objetos, puede aparecer cuando se llega al final del archivo.
+
+    Buffers: BufferedReader y BufferedWriter mejoran la eficiencia para texto.
+
+7. Ejemplos comunes en un examen
+
+    Leer un fichero de texto línea a línea y mostrarlo.
+
+    Escribir texto en un fichero nuevo.
+
+    Guardar un objeto en un fichero binario.
+
+    Leer objetos serializados de un fichero.
+
+    Guardar y leer listas de objetos.
+
+    Detectar y manejar excepciones comunes.
+
+    Diferenciar cuándo usar streams de texto o binarios.
+
+8. Código útil extra
+
+    Guardar texto con PrintWriter
+
+    try (PrintWriter pw = new PrintWriter(new FileWriter("archivo.txt"))) {
+        pw.println("Texto con PrintWriter");
+    }
+    Leer fichero texto con Scanner
+    java
+    Copiar
+    Editar
+    try (Scanner sc = new Scanner(new File("archivo.txt"))) {
+        while (sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+    }
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Escritura de variables en formato concreto (texto)
+
+    1. Usar PrintWriter o Formatter para formatos con placeholders
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter("datos.txt"))) {
+            int edad = 30;
+            double altura = 1.75;
+            String nombre = "Ana";
+
+            // Usando printf para formato
+            pw.printf("Nombre: %s%nEdad: %d%nAltura: %.2f%n", nombre, edad, altura);
+        }
+
+        2. Concatenar o construir strings manualmente
+
+        String linea = nombre + "," + edad + "," + altura;
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("datos.csv"))) {
+            bw.write(linea);
+        }
+        Muy útil para formatos tipo CSV.
+
+Lectura de variables desde texto
+
+    1. Leer línea, luego parsear
+    java
+    Copiar
+    Editar
+    try (BufferedReader br = new BufferedReader(new FileReader("datos.txt"))) {
+        String linea = br.readLine();
+        // Ejemplo: "Nombre: Ana"
+        String[] partes = linea.split(": ");
+        String nombre = partes[1];
+    }
+    O si es CSV:
+
+    java
+    Copiar
+    Editar
+    String linea = br.readLine();
+    String[] datos = linea.split(",");
+    String nombre = datos[0];
+    int edad = Integer.parseInt(datos[1]);
+    double altura = Double.parseDouble(datos[2]);
+    2. Usar Scanner para analizar variables
+    java
+    Copiar
+    Editar
+    try (Scanner sc = new Scanner(new File("datos.txt"))) {
+        while (sc.hasNextLine()) {
+            String nombre = sc.next();
+            int edad = sc.nextInt();
+            double altura = sc.nextDouble();
+            // Usa las variables
+        }
+    }
+    Scanner permite leer datos separados por espacios o saltos de línea, y convertirlos automáticamente.
+
+Escritura y lectura en binario (variables)
+Para datos primitivos en binario, se usan DataOutputStream y DataInputStream:
+
+    java
+    Copiar
+    Editar
+    try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("datos.bin"))) {
+        dos.writeUTF("Ana");    // Escribe String
+        dos.writeInt(30);       // Escribe int
+        dos.writeDouble(1.75);  // Escribe double
+    }
+    Y para leer:
+
+    java
+    Copiar
+    Editar
+    try (DataInputStream dis = new DataInputStream(new FileInputStream("datos.bin"))) {
+        String nombre = dis.readUTF();
+        int edad = dis.readInt();
+        double altura = dis.readDouble();
+    }
+    El orden de lectura y escritura debe coincidir.

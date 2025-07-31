@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<!--
+  Contenedor principal de la interfaz con layout BorderPane.
+  Es la raíz de la escena, y permite colocar nodos en zonas top, center, bottom, left, right.
+-->
+<BorderPane prefHeight="520.0" prefWidth="641.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ud7.apuntesjavafx.examenUD7.InventoryController">
+
+   <!--
+     Sección central del BorderPane, donde se coloca el AnchorPane que contiene todos los controles.
+     AnchorPane permite posicionar nodos con coordenadas fijas (layoutX, layoutY).
+   -->
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="277.0" BorderPane.alignment="CENTER">
+
+         <!-- Controles dentro del AnchorPane -->
+         <children>
+
+            <!-- Botón para guardar el inventario en archivo -->
+            <Button fx:id="btnSave"
+                    layoutX="477.0" layoutY="434.0"
+                    mnemonicParsing="false"
+                    onAction="#saveInventory"
+                    text="Guardar" />
+
+            <!-- Botón para cargar el inventario desde archivo -->
+            <Button fx:id="btnLoad"
+                    layoutX="558.0" layoutY="434.0"
+                    mnemonicParsing="false"
+                    onAction="#loadInventory"
+                    prefHeight="25.0" prefWidth="59.0"
+                    text="Cargar" />
+
+            <!-- Botón para añadir un nuevo producto desde los campos de texto -->
+            <Button fx:id="btnAdd"
+                    layoutX="40.0" layoutY="140.0"
+                    mnemonicParsing="false"
+                    onAction="#addProduct"
+                    prefHeight="25.0" prefWidth="70.0"
+                    text="Añadir" />
+
+            <!-- Botón para borrar producto seleccionado o por código -->
+            <Button fx:id="btnRemove"
+                    layoutX="41.0" layoutY="277.0"
+                    mnemonicParsing="false"
+                    onAction="#removeProduct"
+                    prefHeight="25.0" prefWidth="72.0"
+                    text="Borrar" />
+
+            <!-- Campo de texto para nombre del producto -->
+            <TextField fx:id="txtName"
+                       layoutX="124.0" layoutY="186.0" />
+
+            <!-- Campo de texto para precio del producto -->
+            <TextField fx:id="txtPrice"
+                       layoutX="124.0" layoutY="231.0" />
+
+            <!-- Campo de texto para cantidad del producto -->
+            <TextField fx:id="txtAmount"
+                       layoutX="124.0" layoutY="277.0" />
+
+            <!-- Etiqueta para indicar que el campo siguiente es el nombre -->
+            <Label layoutX="131.0" layoutY="169.0"
+                   text="Nombre" />
+
+            <!-- Etiqueta para el campo precio -->
+            <Label layoutX="131.0" layoutY="213.0"
+                   text="Precio" />
+
+            <!-- Etiqueta para el campo cantidad -->
+            <Label layoutX="131.0" layoutY="260.0"
+                   text="Cantidad" />
+
+            <!-- Campo de texto para código del producto -->
+            <TextField fx:id="txtCodigo"
+                       layoutX="124.0" layoutY="140.0" />
+
+            <!-- Etiqueta para el campo código -->
+            <Label layoutX="131.0" layoutY="123.0"
+                   text="Codigo" />
+
+            <!-- Botón para mostrar el producto que se indica en los campos -->
+            <Button fx:id="btnDisplay"
+                    layoutX="40.0" layoutY="174.0"
+                    mnemonicParsing="false"
+                    onAction="#displayInventory"
+                    prefHeight="25.0" prefWidth="71.0"
+                    text="Mostrar" />
+
+            <!-- ListView que muestra la lista de productos actuales -->
+            <ListView fx:id="lstProductos"
+                      layoutX="329.0" layoutY="123.0"
+                      prefHeight="275.0" prefWidth="296.0" />
+
+            <!-- Campo de texto para buscar un producto por código -->
+            <TextField fx:id="txtSearchBox"
+                       layoutX="403.0" layoutY="88.0"
+                       prefHeight="25.0" prefWidth="149.0"
+                       promptText="Buscar por Código" />
+
+            <!-- Botón para actualizar datos de un producto existente -->
+            <Button fx:id="btnUpdate"
+                    layoutX="40.0" layoutY="209.0"
+                    mnemonicParsing="false"
+                    onAction="#updateProductData"
+                    prefHeight="25.0" prefWidth="72.0"
+                    text="Actualizar" />
+
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
